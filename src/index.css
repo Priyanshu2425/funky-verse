@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
+
+:root{
+  --funky-blue: #1D66D5;
+  --funky-yellow: #FDD849;
+  --wisteria: #C09BD8;
+  --fairy-tale: #EBC3DB;
+  --lavender-blush: #EDE3E9;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+.link-component{
+  text-decoration: none;
+  text-transform: none;
+  color: inherit;
+}

@@ -1,0 +1,36 @@
+main {
+    background: url('/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 85vh;
+    background-color: #F5F6FB;
+}
+
+#funky {
+    color: var(--funky-yellow);
+    font-size: 8vw;
+}
+
+#verse {
+    color: var(--funky-blue);
+    font-size: 8vw;
+}
+
+
+@media only screen and (max-width: 1000px){
+    main{
+        height: 60vh;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    main {
+        height: 40vh;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    main {
+        height: 35vh;
+    }
+}
