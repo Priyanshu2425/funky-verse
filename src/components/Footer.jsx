@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import Logo from '/funkyverse.png'
+import Logo from '/logo.PNG'
 import InstagramLogo from '/instagram.png'
 import "../assets/footer.css"
 
