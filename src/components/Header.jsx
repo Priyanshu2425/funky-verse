@@ -1,5 +1,4 @@
 import {Link} from 'react-router-dom'
-import { useEffect } from 'react'
 import Logo from '/funkyverse.png'
 import MenuIcon from '/menu-icon.png'
 import '../assets/header.css'
@@ -34,8 +33,7 @@ export default function Header(){
                 <br></br>
                 <div id="closeBtn" onClick={closeMenu}> X </div>
                 {/* <button></button> */}
-            </div>
-            
+            </div>            
         </>
     )
 }
