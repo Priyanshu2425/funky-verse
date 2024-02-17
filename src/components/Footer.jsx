@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
-import Logo from '/product/logo.png'
-import InstagramLogo from "/product/instagram.png"
+import Logo from '/logo.png'
+import InstagramLogo from "/instagram.png"
 import "../assets/footer.css"
 
 export default function Footer(){
