@@ -1,0 +1,18 @@
+.policy{
+    padding: 0 20%;
+}
+
+.policy-title{
+    margin-bottom: 2%;
+    font-weight: lighter;
+}
+
+.policy-content{
+    font-weight: 300;
+}
+
+@media only screen and (max-width: 750px){
+    .policy{
+        padding: 0 10%;
+    }
+}

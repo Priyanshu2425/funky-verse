@@ -101,7 +101,9 @@ export default function Shop(){
         }))
     
         
-        closeMenu()
+        closeMenu();
+        window.scrollTo(0, 0);
+				
     }, [priceFilter, typeFilter])
 
     return (
