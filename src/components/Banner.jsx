@@ -13,10 +13,10 @@ export default function Banner(){
     }
 
     useEffect(()=>{
-        const video = document.getElementById("bannerVid").autoPlay();
-        video.autoPlay();
-        video.loop();
-        video.muted();
+        const videoPlayer = document.getElementById("bannerVid").autoPlay();
+        videoPlayer.autoPlay();
+        videoPlayer.loop();
+        videoPlayer.muted();
         closeMenu();
     }, [])
 
