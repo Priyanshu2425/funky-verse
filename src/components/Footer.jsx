@@ -7,7 +7,6 @@ export default function Footer(){
     return (
 			<>
 				<footer>
-
 					<div id="footer-logo">
 						<img id="footer-logo-img" src={Logo} />
 					</div>
@@ -33,11 +32,11 @@ export default function Footer(){
 
 					<div id="socials">
 						<h3>Socials</h3>
-						<a href="https://www.instagram.com/funky_verse3/">
+						<a href="https://www.instagram.com/the_funkyverse/">
 							<img src={InstagramLogo} /> the_funkyverse{" "}
 						</a>
 						<br></br>
-						<a href="mailto:funkyverse3@gmail.com">thefunkyverse@gmail.com</a>
+						<a href="mailto:thefunkyverse@gmail.com">thefunkyverse@gmail.com</a>
 					</div>
 				</footer>
 			</>
