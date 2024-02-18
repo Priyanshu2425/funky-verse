@@ -3,11 +3,7 @@ main {
     background-size: cover;
     background-position: center;
     background-color: #F5F6FB;
-}
-
-
-main video{
-    width: 100vw;
+    height: 85vh;
 }
 
 @media only screen and (max-width: 1000px){
