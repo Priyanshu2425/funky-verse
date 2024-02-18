@@ -13,6 +13,10 @@ export default function Banner(){
     }
 
     useEffect(()=>{
+        const vid = document.getElementById("bannerVid").autoPlay();
+        vid.autoPlay();
+        vid.loop();
+        vid.muted();
         closeMenu();
     }, [])
 
@@ -25,7 +29,7 @@ export default function Banner(){
                 <span id="verse">VERSE</span>
                 <h1> WINTER SALE </h1>
                 <h4> Upto 60% off</h4> */}
-                <video autoPlay muted loop>
+                <video id="bannerVid">
                     <source src={BannerVideo} type="video/mp4"></source>
                     Your browser does not support the video tag.
                 </video>

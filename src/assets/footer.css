@@ -35,6 +35,7 @@ footer > div{
 
 #socials{
     width: max-content;
+    line-height: 1.8;
     justify-self: center;
 }
 
