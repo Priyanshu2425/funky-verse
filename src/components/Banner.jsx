@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import '../assets/banner.css'
 import BannerImg from '/banner.jpg'
+import BannerVideo from '/bannerlogo.mp4'
 
 export default function Banner(){
 
@@ -24,6 +25,10 @@ export default function Banner(){
                 <span id="verse">VERSE</span>
                 <h1> WINTER SALE </h1>
                 <h4> Upto 60% off</h4> */}
+                <video autoPlay muted loop>
+                    <source src={BannerVideo} type="video/mp4"></source>
+                    Your browser does not support the video tag.
+                </video>
             </main>
         </>
     )

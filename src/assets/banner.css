@@ -1,8 +1,7 @@
 main {
-    background: url('/banner.jpg');
+    /* background: url('/banner.jpg');
     background-size: cover;
-    background-position: center;
-    height: 85vh;
+    background-position: center; */
     background-color: #F5F6FB;
 }
 
@@ -16,6 +15,9 @@ main {
     font-size: 8vw;
 }
 
+main video{
+    width: 100vw;
+}
 
 @media only screen and (max-width: 1000px){
     main{

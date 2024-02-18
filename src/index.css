@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap')
+
 
 :root{
   --funky-blue: #1D66D5;
@@ -11,7 +13,9 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Oswald', sans-serif; */
+  font-family: "Archivo Black", sans-serif;
+
   box-sizing: border-box;
 }
 
