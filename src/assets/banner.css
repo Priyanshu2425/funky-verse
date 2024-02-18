@@ -1,19 +1,10 @@
 main {
-    /* background: url('/banner.jpg');
+    background: url('/banner.jpg');
     background-size: cover;
-    background-position: center; */
+    background-position: center;
     background-color: #F5F6FB;
 }
 
-#funky {
-    color: var(--funky-yellow);
-    font-size: 8vw;
-}
-
-#verse {
-    color: var(--funky-blue);
-    font-size: 8vw;
-}
 
 main video{
     width: 100vw;

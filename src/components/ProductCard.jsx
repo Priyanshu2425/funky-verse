@@ -35,7 +35,7 @@ export default function ProductCard(props){
                             <img id = 'product-big-picture' src={props.product.address}/>
                         </div>
                         <div id="desc-right">
-                            <div id={`product-description-${props.product.key}`} class="big-close-bttn" onClick={closeProduct}>X</div>
+                            <div id={`product-description-${props.product.key}`} className="big-close-bttn" onClick={closeProduct}>X</div>
                             <p id="big-name"> {props.product.name} </p>
                             <div id="price-desc">
                                 <p id="big-price"> Rs. {props.product.price} </p>
@@ -43,7 +43,7 @@ export default function ProductCard(props){
 
                             </div>
                             <button> Buy Now </button>
-                            <table id="big-table">
+                            {/* <table id="big-table">
                                 <tr>
                                     <td>
                                         <img src={FreeDelivery}/>
@@ -70,7 +70,7 @@ export default function ProductCard(props){
                                         Secure Payments
                                     </td>
                                 </tr>
-                            </table>
+                            </table> */}
                             <div id="desc-big">
                                 <p><span id="product-desc">Product Description</span></p>
                                 <p><span>Fabric:</span> 60% Cotton 40% Polyester</p> 
