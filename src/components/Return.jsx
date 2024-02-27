@@ -18,7 +18,7 @@ function Return() {
 					made specially on your order demand that's why currently we do not
 					exchange or return the product on the basis of size issue, but in case
 					if the product is damages ripped or the wrong size or product is
-					delivered to you, in that case its the responsibility of Pink Matter
+					delivered to you, in that case its the responsibility of Funkyverse
 					to get that product exchanged or returned according to your wish.
 					<br></br>
 					<br></br>
@@ -41,6 +41,10 @@ function Return() {
 					pick-up. We will issue credit for your return after it reaches our
 					office and the products are verified. This process will take 7-10
 					working days from the date of raising the return request.
+					<h3 className="policy-title">
+						What is the Refund Policy?
+					</h3>
+					We do not offer any refunds.
 				</p>
 			</div>
 		</>
