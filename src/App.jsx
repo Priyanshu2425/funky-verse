@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, Suspense} from "react"
 
 import Header from './components/template/Header'
 import Banner from './components/template/Banner'
