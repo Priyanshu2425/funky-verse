@@ -9,7 +9,7 @@ export default function Shop(){
     useEffect(()=>{
         
         async function getProducts(){
-            let response = await fetch("http://localhost:3000/.netlify/functions/api/products", {
+            let response = await fetch("https://app.netlify.com/sites/funkyverse-backend/functions/api/products", {
                 method: "GET",
                 credentials: "include"
             });
