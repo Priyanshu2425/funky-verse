@@ -1,0 +1,76 @@
+
+#login-page{
+    width: 250px;
+    margin: 5% auto;
+    text-align: center;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#back-btn{
+    text-align: left;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    width: 100px;
+}
+
+#back-btn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#back-btn p{
+    align-self: center;
+}
+
+#form-title{
+    font-size: 1rem;
+    margin-bottom: 20%;
+    text-align: center !important;
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+#login-form input{
+    padding: 10px;
+}
+
+#login-form button{
+    padding: 10px;
+}
+
+#form-banner{
+    height: 50vh;
+    overflow: hidden;
+}
+
+#form-banner img{
+    width: 100%;
+    object-position: left bottom;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    #login-page{
+        margin-top: 10%;
+    }
+    #form-banner{
+        height: 30vh;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    #login-page{
+        margin-top: 20%;
+    }
+    #form-banner{
+        height: 200px;
+    }
+}

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "../assets/policy.css";
+import "../../assets/policy.css"
 
 function Return() {
 	useEffect(() => {
@@ -20,8 +20,8 @@ function Return() {
 					if the product is damages ripped or the wrong size or product is
 					delivered to you, in that case its the responsibility of Funkyverse
 					to get that product exchanged or returned according to your wish.
-					<br></br>
-					<br></br>
+					<br/>
+					<br/>
 					<h3 className="policy-title">
 						What sort of checks do you do for Returned Products?
 					</h3>
@@ -29,8 +29,8 @@ function Return() {
 					condition as they were when they were sent out to you. Clothing
 					products with tags should have the brand tags intact, products with
 					removed tags indicate usage and will not be accepted for returns.
-					<br></br>
-					<br></br>
+					<br/>
+					<br/>
 					<h3 className="policy-title">
 						How long will the return process take?
 					</h3>
@@ -41,6 +41,8 @@ function Return() {
 					pick-up. We will issue credit for your return after it reaches our
 					office and the products are verified. This process will take 7-10
 					working days from the date of raising the return request.
+					<br/>
+					<br/>
 					<h3 className="policy-title">
 						What is the Refund Policy?
 					</h3>

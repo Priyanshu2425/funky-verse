@@ -1,9 +1,33 @@
-main {
+#banner{
+    display: flex;
+    width: 100%;
+    margin-top: 15%;
+}
+
+#banner img{
+    width: 100%;
+}
+
+#banner-img-one{
+    width: 50%;
+}
+
+#banner-img-two{
+    width: 50%;
+}
+@media only screen and (max-width: 700px){
+    #banner{
+        margin-top: 10vh;
+    }
+}
+/* main {
     background: url('/banner.jpg');
     background-size: cover;
     background-position: center;
     background-color: #F5F6FB;
     height: 85vh;
+    width: 90vw;
+    margin: 0 auto;
 }
 
 @media only screen and (max-width: 1000px){
@@ -22,4 +46,4 @@ main {
     main {
         height: 35vh;
     }
-}
+} */

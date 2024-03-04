@@ -1,0 +1,76 @@
+
+#register-page{
+    width: 300px;
+    margin: 5% auto;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px 20px 40px 20px;
+}
+
+#register-page input{
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid grey;
+}
+#form-otp{
+    display: flex;
+    width: 100%;
+}
+
+#otp-btn{
+    display: flex;
+    justify-content: center;
+}
+
+#otp-btn button{
+    padding: 2px 10px!important;
+    margin: 1px;
+}
+
+.btn1{
+    padding: 0 10px ;
+}
+
+#btn2{
+    display:flex;
+    justify-content: center;
+    
+}
+
+#btn2 button{
+    background-color: white;
+    border: none;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#otp-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+#form-banner{
+    object-fit: contain !important;
+}
+
+@media only screen and (max-width: 1250px){
+    /* #register-page{
+        margin-top: 15%;
+    } */
+}
+@media only screen and (max-width: 900px){
+    /* #register-page{
+        margin-top: 17%;
+    } */
+    
+}
+@media only screen and (max-width: 500px){
+    #register-page{
+        width: 70vw;
+        
+    }
+}

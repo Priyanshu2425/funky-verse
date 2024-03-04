@@ -1,25 +1,34 @@
 import { useEffect } from 'react'
-import '../assets/banner.css'
+import '../../assets/banner.css'
 import BannerImg from '/banner.jpg'
 import BannerVideo from '/bannerlogo.mp4'
+import BrandImageOne from '/pexels-brand-image.jpg'
+import BrandImageTwo from '/pexels-brand-image2.jpg'
 
 export default function Banner(){
-
-    function closeMenu(){
-        let openUpMenu = document.getElementById('openup-menu');
-        openUpMenu.style.display = 'none';
-        let body = document.getElementsByTagName('body');
-        body[0].style.overflow = "scroll";
-    }
 
     useEffect(()=>{
         // const videoPlayer = document.getElementById("bannerVid");
         // videoPlayer.autoPlay = "true";
         // videoPlayer.loop = "true";
         // videoPlayer.muted = "true";
-        closeMenu();
     }, [])
+    let i = 1;
+    if(i){
+        return (
+            <>
+                <div id="banner"> 
+                    <div id="banner-img-one">
+                        <img src={BrandImageOne}/>
+                    </div>
+                    <div id="banner-img-two">
+                        <img src={BrandImageTwo}/>
+                    </div>
 
+                </div>
+            </>
+        )
+    }
     return (
         <>
             <main>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "../assets/policy.css"
+import "../../assets/policy.css"
 
 function DeliveryPolicy(){
     useEffect(() => {

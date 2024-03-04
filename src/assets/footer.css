@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-thin {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.inter-exp {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
 footer{
     height: max-content;
     background-color: black;
@@ -21,6 +48,7 @@ footer > div{
     line-height: 1.8;
     font-weight: 100;
     justify-self: center;
+    font-size: 1rem;
 }
 
 #footer-logo{
@@ -37,6 +65,7 @@ footer > div{
     width: max-content;
     line-height: 1.8;
     justify-self: center;
+    font-size: 1rem;
 }
 
 #socials a{

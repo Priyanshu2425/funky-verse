@@ -1,8 +1,10 @@
 import {useEffect, useState} from 'react'
-import ProductCard from './ProductCard';
-import '../assets/collection.css'
-import Data from '../assets/tshirt.js'
-import '../assets/product-card.css'
+import ProductCard from './ProductCard.jsx';
+import Data from '../../assets/tshirt.js'
+
+import '../../assets/collection.css'
+import "../../assets/product-card.css"
+
 export default function Collection(props){
 
     const [products, setProducts] = useState([]);
