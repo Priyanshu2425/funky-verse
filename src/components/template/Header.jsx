@@ -63,15 +63,16 @@ export default function Header(){
 
                 <div id="mobile-menu">
 
-                    <img onClick={openMenu} src={MenuIcon}/>
+                    <img id="mobile-menu-btn" onClick={openMenu} src={MenuIcon}/>
 
                     <div id="mobile-logo" className='inter-exp'>
                         <Link className="link-component"  to="/">FUNKYVERSE</Link>
                     </div>
 
 
-                    
-                    <img src={ProfileIcon}/>
+                    <Link id="mobile-login-btn" className="link-component" onClick={closeMenu} to="/login">
+                        <img src={ProfileIcon}/>
+                    </Link>
                     
                 </div>
 
