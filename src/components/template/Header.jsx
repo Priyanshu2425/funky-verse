@@ -1,4 +1,5 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { motion } from "framer-motion"
 import Logo from '/funkyverse.png'
 import MenuIcon from '/menus.png'
 import ProfileIcon from '/profile-user.png'

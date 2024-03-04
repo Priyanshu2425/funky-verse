@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {useEffect} from "react"
+import { useEffect, Suspense} from "react"
 
 import Header from './components/template/Header'
 import Banner from './components/template/Banner'
@@ -23,6 +23,7 @@ function App() {
 
   return (
     <>
+      {/* <Suspense> */}
       <BrowserRouter>
         <Routes>
             <Route path='/' element={
@@ -107,6 +108,7 @@ function App() {
             </>}></Route>
         </Routes>
       </BrowserRouter>
+      {/* </Suspense> */}
     </>
   )
 }
