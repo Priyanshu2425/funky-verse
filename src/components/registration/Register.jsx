@@ -102,7 +102,7 @@ export default function Register(){
                 }
                 console.log(userData);
     
-                let response = await fetch("https://app.netlify.com/sites/funkyverse-backend/functions/api/user/signup", {
+                let response = await fetch(" https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
