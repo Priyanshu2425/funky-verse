@@ -1,10 +1,20 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import MenuIcon from '/menus.png'
 import ProfileIcon from '/profile-user.png'
- 
+import CloseButton from '/close-button.png'
+
 import "../../assets/header.css"
 
 export default function Header(){
+    const mobileMenuBox = useRef();
+    function openMenu() {
+        mobileMenuBox.current.style.display = "flex";
+    }
+
+    function closeMenu(){
+        mobileMenuBox.current.style.display = "none";
+    }
 
     return (
         <>
@@ -20,6 +30,7 @@ export default function Header(){
                         <div>
                             
                             <div id="header-links">
+
                                 <Link className="link-component"  to="/shop">
                                     <p id="shop">Shop</p>
                                 </Link>
@@ -52,7 +63,7 @@ export default function Header(){
 
                 <div id="mobile-menu">
 
-                    <img src={MenuIcon}/>
+                    <img onClick={openMenu} src={MenuIcon}/>
 
                     <div id="mobile-logo" className='inter-exp'>
                         <Link className="link-component"  to="/">FUNKYVERSE</Link>
@@ -62,6 +73,37 @@ export default function Header(){
                     
                     <img src={ProfileIcon}/>
                     
+                </div>
+
+                <div id="mobile-menu-box" className="inter-thin" ref={mobileMenuBox}>
+
+                    <img style={{width: "30px"}} onClick={closeMenu} src={CloseButton}/>
+
+                    <Link className="link-component" onClick={closeMenu} to="/shop">
+                        <p id="shop">Shop</p>
+                    </Link>
+
+                    <Link className="link-component" onClick={closeMenu} to="/about">
+                        <p id="shop">About Us</p>
+                    </Link>
+
+                    <Link className="link-component" onClick={closeMenu} to="/faq">
+                        <p id="faq">FAQ</p>
+                    </Link>
+
+                    <Link className="link-component" onClick={closeMenu} to="/contact">
+                        <p id="signup">Contact US</p>
+                    </Link>
+
+                    <Link className="link-component" onClick={closeMenu} to="/login">
+                        <p id="login">Login</p>
+                    </Link>
+
+                    <Link className="link-component" onClick={closeMenu} to="/register">
+                        <p id="signup">Register</p>
+                    </Link>
+                
+
                 </div>
 
             </div>

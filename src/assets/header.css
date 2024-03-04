@@ -80,6 +80,18 @@ nav{
     justify-content: center;
 }
 
+#mobile-menu-box {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    padding: 30vw 10vw;
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 2rem;
+}
 
 @media only screen and (max-width: 700px){
     #desktop-menu{
