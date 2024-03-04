@@ -6,6 +6,7 @@
 
 #banner img{
     width: 100%;
+    aspect-ratio: 1/1;
 }
 
 #banner-img-one{
@@ -14,6 +15,7 @@
 
 #banner-img-two{
     width: 50%;
+    aspect-ratio: 1/1;
 }
 @media only screen and (max-width: 700px){
     #banner{

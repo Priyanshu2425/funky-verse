@@ -15,6 +15,9 @@ import Register from "./components/registration/Register"
 import About from "./components/general/About"
 import Contact from "./components/general/Contact"
 import Faq from "./components/general/Faq"
+import AdBannerLeft from "./components/template/AdBannerLeft";
+import AdBannerRight from "./components/template/AdBannerRight";
+import TagLine from "./components/template/TagLine";
 
 function App() {
 
@@ -26,8 +29,11 @@ function App() {
               <>
                 <Header/>
                 <Banner/>
-                <Collection color="white" collection="Tshirts"/>
-                <Collection color="#F5F6FB" collection="Hoodies & Sweatshirt"/>
+                <Collection color="white" collection="FEATURED"/>
+                {/* <TagLine/> */}
+                <AdBannerLeft/>
+                <Collection color="#F5F6FB" collection="LATEST DROPS"/>
+                <AdBannerRight/>
                 <Footer/>
               </>
             }></Route>

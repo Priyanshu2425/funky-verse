@@ -1,26 +1,20 @@
-section{
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    grid-template-rows: 10vh 50vh;
-    padding: 5vh 0;
-}
 
 #collection{
+    padding: 5%;
     height: max-content;
     grid-column: 2;
-    font-size: 1.5rem;
     font-weight: 100;
-    /* overflow: hidden; */
+    text-align: center;
 }
 #collection-title{
     margin-bottom: 2vh;
-    font-size:xx-large;
+    font-size:2rem;
 }
 
 #product-showcase{
     display: flex;
     gap: 1vw;
-    overflow-x:scroll;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -40,7 +34,7 @@ section{
 }
 
 @media only screen and (max-width: 600px){
-    section{
-        grid-template-rows: 10vh 40vh;
+    #product-showcase{
+        flex-direction: column;
     }
 }

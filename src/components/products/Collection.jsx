@@ -1,48 +1,59 @@
 import {useEffect, useState} from 'react'
 import ProductCard from './ProductCard.jsx';
-import Data from '../../assets/tshirt.js'
 
 import '../../assets/collection.css'
-import "../../assets/product-card.css"
 
 export default function Collection(props){
 
     const [products, setProducts] = useState([]);
 
-    let data;
-    if(props.collection === 'Tshirts'){
-        data = Data.filter((product)=>{
-            return product.type === 'summer'
-        })
-    }else if(props.collection === 'Hoodies & Sweatshirt'){
-        data = Data.filter((product) =>{
-            return product.type === 'winter'
-        })
-    }else{
-        data = Data.filter((product) =>{
-            return product.type === 'anime'
-        })
-    }
     
     useEffect(()=>{
-        setProducts(data.map((item)=>{
-            return <ProductCard key={item.key} product={item}/>
-        }))
+        
+        async function getProducts(){
+            let response = await fetch(" https://funkyverse-backend.netlify.app/.netlify/functions/api/products", {
+                method: "GET",
+                credentials: "include",
+                mode: "cors"
+            });
+
+            let data = await response.json();
+            let selected = [];
+            let toSelect = 3;
+            while(toSelect){
+                let i = Math.floor(Math.random()*data.products.length);
+                selected.push(i);
+                toSelect--;
+            }
+
+            setProducts(data.products.filter((item, index)=>{
+                if(selected.indexOf(index) >= 0) return item;
+            }).map((item)=>{
+                return <ProductCard key={item._id} product={item}/>
+            }) )
+        }
+
+        getProducts();
+
+        // setProducts(data.map((item)=>{
+        //     return <ProductCard key={item.key} product={item}/>
+        // }))
+
+        window.scrollTo(0, 0);
+				
     }, [])
 
     return (
         <>
-            <section> 
-                <div id="collection">
-                    <p id="collection-title">{props.collection}</p>
-                    
-                    <div id="product-showcase">
-                        {products}
-                    </div>
-                    
+            <div id="collection">
+                <p id="collection-title" className='inter-thin'>{props.collection}</p>
+                
+                <div id="product-showcase">
+                    {products}
                 </div>
                 
-            </section>
+            </div>
+                
         </>
     )
 }

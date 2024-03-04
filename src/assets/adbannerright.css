@@ -1,0 +1,41 @@
+#right-img{
+    background: url('/public/trendsetting.jpg');
+    background-size: cover;
+}
+
+#left-text{
+    background-color: #DFDFDF;
+    padding: 2%;
+}
+
+#left-text h1{
+    font-size: 3rem;
+}
+
+#left-text p{
+    font-size: 1.5rem;
+    margin-bottom: 25%;
+}
+
+@media only screen and (max-width: 800px){
+    #left-text h1{
+        font-size: 2.5rem;
+    }
+
+    #right-img{
+        height: 50vh;
+    }
+
+}
+
+@media only screen and (max-width: 400px){
+    #left-text h1{
+        font-size: 2rem;
+    }
+
+    #left-text p{
+        font-size: 1rem;
+    }
+
+
+}

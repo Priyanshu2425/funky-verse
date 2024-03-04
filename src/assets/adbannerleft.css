@@ -1,0 +1,40 @@
+
+#left-img{
+    background: url("/public/comfortable.jpg");
+    background-size: cover;
+}
+
+#right-text{
+    padding: 4%;
+    background-color: #DFDFDF;
+}
+
+#right-text h1{
+    font-size: 3rem;
+}
+
+#right-text p{
+    font-size: 1.5rem;
+    margin-bottom: 25%;
+}
+
+
+
+@media only screen and (max-width: 800px){
+    #left-img{
+        height: 50vh;
+    }
+}
+
+
+@media only screen and (max-width: 400px){
+    #right-text h1{
+        font-size: 2rem;
+    }
+
+    #right-text p{
+        font-size: 1rem;
+    }
+
+
+}

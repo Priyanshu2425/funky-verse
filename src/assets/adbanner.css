@@ -1,6 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+.ad-banner{
+    height: 75vh;
+    display: flex;
+    width: 100%;
+}
+
+.adbanner-left{
+    width: 50%;
+}
+
+.adbanner-right{
+    width: 50%;
+}
+
+@media only screen and (max-width: 800px){
+
+    .ad-banner{
+        display: block;
+        height: max-content;
+        /* flex-direction: column; */
+    }
+
+    .adbanner-left{
+        width: 100%;
+    }
+
+    .adbanner-right{
+        width: 100%;
+    }
+}
+
+.shop-banner-button{
+    padding: 2%;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    background-color: white;
+}
+
+
 .archivo-black-regular {
   font-family: "Archivo Black", sans-serif;
   font-weight: 400;
@@ -32,50 +71,4 @@
   font-style: normal;
   font-variation-settings:
     "slnt" 0;
-}
-
-
-
-.card{
-    width: 100%;
-    position: relative;
-}
-
-
-.card-img{
-    width: 100%;
-    aspect-ratio: 1/1;
-}
-
-.card:hover .card-img{
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.card-img-fallback{
-    width: 100%;
-    height: 300px;
-    background-color: #F2F2F3;
-}
-
-.card-img img{
-    width: 100%;
-}
-
-.product-price{
-    font-size: 0.8rem;
-    text-decoration: line-through;
-}
-
-.tags{
-    position: absolute;
-    top: 0;
-    background-color: green;
-    color: white;
-    padding: 5px 10px;
-    font-family: "Inter", sans-serif;
-}
-
-.bestseller{
-    background-color: green;
 }
