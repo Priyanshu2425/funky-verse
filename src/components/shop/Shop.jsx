@@ -11,7 +11,8 @@ export default function Shop(){
         async function getProducts(){
             let response = await fetch("https://app.netlify.com/sites/funkyverse-backend/functions/api/products", {
                 method: "GET",
-                credentials: "include"
+                credentials: "include",
+                mode: "cors"
             });
 
             let data = await response.json();
