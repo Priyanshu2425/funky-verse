@@ -9,7 +9,7 @@ function Return() {
 	return (
 		<>
 			<div className="policy">
-				<h1 className="policy-title">Delivery and Shipping Policy </h1>
+				<h1 className="policy-title">Return and Exchange Policy </h1>
 				<p className="policy-content">
 					<h3 className="policy-title">
 						What is Funkyverse's Exchange Policy for Funkyverse Clothing?
