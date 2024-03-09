@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
 import Header from './components/template/Header'
 import Banner from './components/template/Banner'
@@ -17,13 +17,46 @@ import Faq from "./components/general/Faq"
 import AdBannerLeft from "./components/template/AdBannerLeft";
 import AdBannerRight from "./components/template/AdBannerRight";
 import TagLine from "./components/template/TagLine";
+import Profile from "./components/registration/Profile"
+import Cart from "./components/shop/Cart"
+
+import { useSetRecoilState } from 'recoil'
+import { username } from './atoms'
+import { useEffect } from "react";
 
 function App() {
+  const navigate = useNavigate();
+  const setUsername = useSetRecoilState(username);
+
+
+  async function loginWithToken(token){
+    let response = await fetch('http://localhost:3000/.netlify/functions/api/user/login', {
+      method: 'POST',
+      headers: {
+        'auth': token
+      },
+      credentials: 'include'
+    });
+    
+    let data = await response.json();
+    console.log(data);
+    setUsername(data.username);
+    console.log("here")
+    if(response.status === 200){
+      navigate("/");
+    }
+    
+  }
+  
+  useEffect(()=>{
+    const token = localStorage.getItem('auth_token');
+    if(token) loginWithToken(token);
+  }, [])
 
   return (
     <>
       {/* <Suspense> */}
-      <BrowserRouter>
+      
         <Routes>
             <Route path='/' element={
               <>
@@ -105,8 +138,22 @@ function App() {
               <Return/>
               <Footer/>
             </>}></Route>
+
+            <Route path='/profile' element={<>
+              <Header/>
+              <Profile/>
+              <Footer/>
+            </>}></Route>
+
+            <Route path='/cart' element={<>
+              <Header/>
+              <Cart/>
+              <Footer/>
+            </>}></Route>
+
+
         </Routes>
-      </BrowserRouter>
+      
       {/* </Suspense> */}
     </>
   )

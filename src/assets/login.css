@@ -55,6 +55,23 @@
     object-position: left bottom;
 }
 
+.message{
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.error-btn{
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    background-color: #fef2f2;
+}
+
+.success-btn{
+    color: #65a30d;
+    border: 1px solid #65a30d;
+    background-color: #f0fdf4;
+}
+
 
 @media only screen and (max-width: 1000px) {
     #login-page{

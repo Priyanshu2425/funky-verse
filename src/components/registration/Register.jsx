@@ -1,5 +1,5 @@
-import { useState, useRef } from "react"
-import { Link } from "react-router-dom"
+import { useState, useRef, useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import { z } from "zod"
 import BackButton from "/back-btn.png"
 import Reload from "/reload.png"
@@ -7,8 +7,11 @@ import VerifiedIcon from "/verified.png"
 import ClothingBanner from "/clothingbanner.jpg"
 import "../../assets/login.css"
 import "../../assets/register.css"
+import { useAnimate } from "framer-motion"
+
 
 export default function Register(){
+    const navigate = useNavigate();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -18,6 +21,7 @@ export default function Register(){
     const [otpVerified, setOTPVerified] = useState(false);
     
     const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState("");
 
     const changeName = (event)=> setName(event.target.value);
     const changeEmail = (event)=> setEmail(event.target.value);
@@ -45,6 +49,7 @@ export default function Register(){
             getOTPbtn.current.style.display = "none";
             verifyBtn.current.style.display = "block";
             
+            //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
             fetch("http://localhost:3000/.netlify/functions/api/user/otp",{
                 method: "GET",
                 credentials: "include"
@@ -58,9 +63,12 @@ export default function Register(){
         }catch(error){
             if(error.name === "ZodError"){
                 setMessage("Invalid Email");
+                setMessageType("error-btn");
             }else{
                 setMessage(error.message);
+                setMessageType("error-btn");
             }
+            setMessageType("error-btn");
             window.scrollTo(0, 0);
             setTimeout(()=>setMessage(""), 5000);
         }
@@ -69,6 +77,7 @@ export default function Register(){
     function verifyOTP(){
         async function sendVerifyReq(){
             if(otp.length === 6 && !otpVerified){
+                // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/match/otp
                 let response = await fetch("http://localhost:3000/.netlify/functions/api/user/match/otp", {
                     method: "POST",
                     headers: {
@@ -77,12 +86,12 @@ export default function Register(){
                     credentials: "include",
                     body: JSON.stringify({"userOTP": otp})
                 });
-
+                
                 if(response.status === 200){
                     setOTPVerified(true);
+                    otpMessage.current.innerHTML = "Verified";
                 }
 
-                otpMessage.current.innerHTML = "Verified";
             }
         }
         sendVerifyReq();
@@ -100,9 +109,8 @@ export default function Register(){
                     "Password": password,
                     "OTP": otp
                 }
-                console.log(userData);
-    
-                let response = await fetch(" https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup", {
+                // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup
+                let response = await fetch("http://localhost:3000/.netlify/functions/api/user/signup", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -111,21 +119,30 @@ export default function Register(){
                     credentials: "include",
                     mode: "cors"
                 })
-
-                // let message = await response.json();
-                console.log(response.status);
+                
+                let message = await response.json();
                 if(response.status === 200){
                     setMessage("Registration Successful.");
+                    setMessageType("success-btn");
+                    localStorage.setItem("auth_token", message.auth);
+                    setTimeout(()=>navigate('/login'), 1500);
                 }else if(response.status === 204){
                     setMessage("User exists already. Please log in.");
+                    setMessageType("error-btn");
                 }else{
                     setMessage("Error signing up");
+                    setMessageType("error-btn");
                 }
             }
         }
 
         register();
     }
+
+    // useEffect(()=>{
+    //     setTimeout(()=>setMessage(""), 5000);
+    // }, [message]);
+
     return (
         <>  
             <div id="form-banner">
@@ -136,10 +153,11 @@ export default function Register(){
                 <span id="back-btn">
                     <Link className="link-component"  to="/"><img style={{width: "15px"}} src={BackButton}/></Link>
                 </span>
+                <br/>
                 <div id="message">
-                    {message}
+                    {message && <div className={`message inter-regular ${messageType}`}> {message} </div> }
                 </div>
-                <br/><br/><br/>
+                <br/>
                 <p className="inter-thin" id="form-title">Register</p>
                 <form className="inter-thin" id="login-form" onSubmit={handleSubmit}>
                     <input type="text" placeholder="Name" onChange={changeName}/>

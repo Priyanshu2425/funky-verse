@@ -1,0 +1,9 @@
+#cart{
+    margin-top: 15%;
+}
+
+@media only screen and (max-width: 800px){
+    #cart{
+        margin-top: 10vh;
+    }
+}
