@@ -1,15 +1,15 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import MenuIcon from '/menus.png'
 import ProfileIcon from '/profile-user.png'
 import CloseButton from '/close-button.png'
 
 import { username } from '../../atoms'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import "../../assets/header.css"
 
 export default function Header(){
-    const userLoggedIn = useRecoilValue(username);
+    const [userLoggedIn, setUserLoggedIn] = useRecoilState(username);
 
     const mobileMenuBox = useRef();
     function openMenu() {
@@ -18,8 +18,15 @@ export default function Header(){
 
     function closeMenu(){
         mobileMenuBox.current.style.display = "none";
-    }
+    } 
 
+    const navigate = useNavigate();
+    function logoutUser(){
+        localStorage.removeItem('auth_token');
+        setUserLoggedIn('');
+        closeMenu();
+        navigate('/');
+    }
     return (
         <>
             <div id="header">
@@ -51,7 +58,7 @@ export default function Header(){
                                     <p id="signup">Contact US</p>
                                 </Link>
                                 {
-                                    userLoggedIn ?
+                                    localStorage.getItem('auth_token') && userLoggedIn ?
                                     <>
                                         <Link className="link-component"  to="/cart">
                                         <div id="profile-cart">                                        
@@ -79,7 +86,7 @@ export default function Header(){
                                             </div>
                                         </Link>
 
-                                        <Link className='link-component'>
+                                        <Link className='link-component' onClick={logoutUser}>
                                             <div id="profile-cart">
                                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M17.2929 14.2929C16.9024 14.6834 16.9024 15.3166 17.2929 15.7071C17.6834 16.0976 18.3166 16.0976 18.7071 15.7071L21.6201 12.7941C21.6351 12.7791 21.6497 12.7637 21.6637 12.748C21.87 12.5648 22 12.2976 22 12C22 11.7024 21.87 11.4352 21.6637 11.252C21.6497 11.2363 21.6351 11.2209 21.6201 11.2059L18.7071 8.29289C18.3166 7.90237 17.6834 7.90237 17.2929 8.29289C16.9024 8.68342 16.9024 9.31658 17.2929 9.70711L18.5858 11H13C12.4477 11 12 11.4477 12 12C12 12.5523 12.4477 13 13 13H18.5858L17.2929 14.2929Z" fill="#323232"/>
@@ -121,7 +128,7 @@ export default function Header(){
                     </div>
 
                     {
-                        userLoggedIn 
+                        localStorage.getItem('auth_token') && userLoggedIn
                         ? 
                         <Link id="mobile-login-btn" className="link-component" onClick={closeMenu} to="/profile">
                             <img src={ProfileIcon}/>
@@ -155,9 +162,9 @@ export default function Header(){
                     </Link>
 
                     {
-                    userLoggedIn ?
+                    localStorage.getItem('auth_token') && userLoggedIn?
                     <>
-                        <Link className="link-component"  to="/cart">
+                        <Link className="link-component"  to="/cart" onClick={closeMenu}>
                         <div id="profile-cart">                                        
                             
                             <p id="signup">Cart</p>
@@ -174,7 +181,7 @@ export default function Header(){
                         </div>
                         </Link>
 
-                        <Link className="link-component"  to="/profile">
+                        <Link className="link-component"  to="/profile" onClick={closeMenu}>
                             <div id="profile-cart">
                                 <p id="signup">
                                     {userLoggedIn[0].toUpperCase()+userLoggedIn.slice(1)} 
@@ -185,7 +192,7 @@ export default function Header(){
                             </div>
                         </Link>
 
-                        <Link className='link-component'>
+                        <Link className='link-component' onClick={logoutUser}>
                             <div id="profile-cart">
                                 <p>Logout</p>
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,11 +204,11 @@ export default function Header(){
 
                     </>
                     :<>
-                        <Link className="link-component"  to="/login">
+                        <Link className="link-component"  to="/login" onClick={closeMenu}>
                             <p id="login">Login</p>
                         </Link>
 
-                        <Link className="link-component"  to="/register">
+                        <Link className="link-component"  to="/register" onClick={closeMenu}>
                             <p id="signup">Register</p>
                         </Link>
                     </>

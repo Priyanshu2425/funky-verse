@@ -26,7 +26,7 @@ export default function Login(){
             return;
         }
 
-        let response = await fetch("http://localhost:3000/.netlify/functions/api/user/login", {
+        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/login", {
             method: 'POST',
             headers: {
                 'email': email,
@@ -39,9 +39,11 @@ export default function Login(){
         if(response.status === 200){
             setMessage(data.message);
             setMessageType('success-btn');
+            localStorage.setItem("auth_token", data.auth);
             setTimeout(()=>{
                 setMessage('');
                 setMessageType('');
+                window.location.reload();
             }, 1500);
         }else{
             setMessage(data.message);

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom'
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "../../assets/product-card.css"
 
@@ -10,31 +11,33 @@ export default function ProductCard(props){
         setImageLoaded(true);
     }
 
+
     return (
         <>
-            <div className="card">
+                <div className="card">
+            <Link className="link-component" to={`/product?id=${props.product._id}`}>
 
-                {!imageLoaded && <div className="card-img-fallback"></div>}
+                    {!imageLoaded && <div className="card-img-fallback"></div>}
 
-                <img
-                    className='card-img'
-                    src={props.product.imageLink1}
-                    alt={props.product.productName}
-                    onLoad={handleImageLoad}
-                    style={{ "display": imageLoaded ? 'block' : 'none' }}
-                />
+                    <img
+                        className='card-img'
+                        src={props.product.imageLink1}
+                        alt={props.product.productName}
+                        onLoad={handleImageLoad}
+                        style={{ "display": imageLoaded ? 'block' : 'none' }}
+                    />
 
-                <div className='info'>
-                    <div className="product-name inter-regular">{props.product.productName}</div>
-                    <div className="discount-price inter-thin"> Rs. {props.product.discountPrice} </div>
-                    <div className="product-price inter-thin"> Rs. {props.product.price} </div>
+                    <div className='info'>
+                        <div className="product-name inter-regular">{props.product.productName}</div>
+                        <div className="discount-price inter-thin"> Rs. {props.product.discountPrice} </div>
+                        <div className="product-price inter-thin"> Rs. {props.product.price} </div>
+                    </div>
+
+                    {props.product.tags ? <div className="tags bestseller">
+                        Bestseller
+                    </div> : <div></div>}
+            </Link>
                 </div>
-
-                {props.product.tags ? <div className="tags bestseller">
-                    Bestseller
-                </div> : <div></div>}
-            </div>
-            
         </>
     )
 }

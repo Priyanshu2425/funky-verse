@@ -9,9 +9,12 @@ import "../../assets/login.css"
 import "../../assets/register.css"
 import { useAnimate } from "framer-motion"
 
+import { username } from "../../atoms"
+import { useSetRecoilState } from 'recoil'
 
 export default function Register(){
     const navigate = useNavigate();
+    const setUsername = useSetRecoilState(username);
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -50,7 +53,7 @@ export default function Register(){
             verifyBtn.current.style.display = "block";
             
             //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
-            fetch("http://localhost:3000/.netlify/functions/api/user/otp",{
+            fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp",{
                 method: "GET",
                 credentials: "include"
             }).then((response)=>{
@@ -78,7 +81,7 @@ export default function Register(){
         async function sendVerifyReq(){
             if(otp.length === 6 && !otpVerified){
                 // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/match/otp
-                let response = await fetch("http://localhost:3000/.netlify/functions/api/user/match/otp", {
+                let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/match/otp", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -110,7 +113,7 @@ export default function Register(){
                     "OTP": otp
                 }
                 // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup
-                let response = await fetch("http://localhost:3000/.netlify/functions/api/user/signup", {
+                let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -125,7 +128,11 @@ export default function Register(){
                     setMessage("Registration Successful.");
                     setMessageType("success-btn");
                     localStorage.setItem("auth_token", message.auth);
-                    setTimeout(()=>navigate('/login'), 1500);
+                    setTimeout(()=>{
+                        setMessage('');
+                        setMessageType('');
+                        window.location.reload();
+                }   , 1500);
                 }else if(response.status === 204){
                     setMessage("User exists already. Please log in.");
                     setMessageType("error-btn");
