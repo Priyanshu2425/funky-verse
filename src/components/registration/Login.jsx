@@ -46,7 +46,6 @@ export default function Login(){
             setTimeout(()=>{
                 setMessage('');
                 setMessageType('');
-                navigate('/')
             }, 1500);
         }else{
             setMessage(data.message);
