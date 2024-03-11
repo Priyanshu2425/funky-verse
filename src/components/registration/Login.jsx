@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom"
 import BackButton from "/back-btn.png"
 import ClothingBanner from "/clothingbanner.jpg"
 import "../../assets/login.css"
-
+import { useSetRecoilState } from 'recoil'
+import { username } from './atoms'
 
 export default function Login(){
     const navigate = useNavigate();
+    const setUsername = useSetRecoilState(username);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,7 +21,6 @@ export default function Login(){
 
     async function handleLogin(event){
         event.preventDefault();
-        console.log('triggered');
         if(!email || !password){
             setMessage("Invalid email/password");
             setMessageType("error-btn");
@@ -41,6 +42,7 @@ export default function Login(){
             setMessage(data.message);
             setMessageType('success-btn');
             localStorage.setItem("auth_token", data.auth);
+            setUsername(data.username);
             setTimeout(()=>{
                 setMessage('');
                 setMessageType('');

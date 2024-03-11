@@ -130,6 +130,7 @@ export default function Register(){
                     setMessage("Registration Successful.");
                     setMessageType("success-btn");
                     localStorage.setItem("auth_token", message.auth);
+                    setUsername(message.username);
                     setTimeout(()=>{
                         setMessage('');
                         setMessageType('');
