@@ -55,7 +55,8 @@ export default function Register(){
             //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
             fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp",{
                 method: "GET",
-                credentials: "include"
+                credentials: "include",
+                mode: "cors"
             }).then((response)=>{
                 response.json().then((data)=>{
                     console.log(data);
@@ -87,7 +88,8 @@ export default function Register(){
                         'Content-Type': 'application/json'
                     },
                     credentials: "include",
-                    body: JSON.stringify({"userOTP": otp})
+                    body: JSON.stringify({"userOTP": otp}),
+                    mode: "cors"
                 });
                 
                 if(response.status === 200){

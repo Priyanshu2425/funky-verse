@@ -41,7 +41,8 @@ export default function ProductDesc(props){
             headers: {
                 'auth': localStorage.getItem('auth_token')
             },
-            credentials:'include'
+            credentials:'include',
+            mode: "cors"
         })
         let data = await response.json();
         setProduct(data.product[0]);
@@ -74,7 +75,8 @@ export default function ProductDesc(props){
                 'auth': localStorage.getItem('auth_token')
             },
             body: JSON.stringify(data),
-            credentials: 'include'
+            credentials: 'include',
+            mode: "cors"
         })
 
         let responseData = await response.json();
