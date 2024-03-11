@@ -31,7 +31,7 @@ function App() {
 
 
   const loginWithToken = useCallback(async (token)=>{
-    let response = await fetch('http://localhost:3000/.netlify/functions/api/user/login', {
+    let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/login', {
       method: 'POST',
       headers: {
         'auth': token
