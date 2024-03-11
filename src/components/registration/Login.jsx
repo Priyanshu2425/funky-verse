@@ -4,7 +4,7 @@ import BackButton from "/back-btn.png"
 import ClothingBanner from "/clothingbanner.jpg"
 import "../../assets/login.css"
 import { useSetRecoilState } from 'recoil'
-import { username } from './atoms'
+import { username } from '../../atoms'
 
 export default function Login(){
     const navigate = useNavigate();
