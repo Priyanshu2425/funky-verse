@@ -33,7 +33,7 @@ export default function Login(){
                 'password': password
             },
             credentials: 'include',
-            mode: "cors"
+            mode: 'cors'
         })
 
         let data = await response.json();
@@ -44,7 +44,7 @@ export default function Login(){
             setTimeout(()=>{
                 setMessage('');
                 setMessageType('');
-                window.location.reload();
+                navigate('/')
             }, 1500);
         }else{
             setMessage(data.message);
