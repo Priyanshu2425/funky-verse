@@ -36,7 +36,8 @@ function App() {
       headers: {
         'auth': token
       },
-      credentials: 'include'
+      credentials: 'include',
+      mode: 'cors'
     });
     
     let data = await response.json();

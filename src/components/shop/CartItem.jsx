@@ -5,7 +5,7 @@ export default function CartItem(props){
 
     async function removeFromCart(){
 
-        let response = await fetch("http://localhost:3000/.netlify/functions/api/user/cart/remove",{
+        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/remove",{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
