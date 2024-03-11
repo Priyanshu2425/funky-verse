@@ -134,6 +134,7 @@ export default function Register(){
                     setTimeout(()=>{
                         setMessage('');
                         setMessageType('');
+                        navigate('/');
                     }   , 1500);
                 }else if(response.status === 204){
                     setMessage("User exists already. Please log in.");
