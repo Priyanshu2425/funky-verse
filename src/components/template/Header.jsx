@@ -58,7 +58,7 @@ export default function Header(){
                                     <p id="signup">Contact US</p>
                                 </Link>
                                 {
-                                    localStorage.getItem('auth_token') && userLoggedIn ?
+                                    userLoggedIn ?
                                     <>
                                         <Link className="link-component"  to="/cart">
                                         <div id="profile-cart">                                        
@@ -162,7 +162,7 @@ export default function Header(){
                     </Link>
 
                     {
-                    localStorage.getItem('auth_token') && userLoggedIn?
+                    userLoggedIn?
                     <>
                         <Link className="link-component"  to="/cart" onClick={closeMenu}>
                         <div id="profile-cart">                                        
