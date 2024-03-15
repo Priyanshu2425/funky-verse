@@ -26,7 +26,6 @@ export default function Header(){
         localStorage.removeItem('auth_token');
         setUserLoggedIn('');
         closeMenu();
-        navigate('/');
     }
 
     
