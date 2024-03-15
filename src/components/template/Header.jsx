@@ -1,14 +1,16 @@
 import { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import MenuIcon from '/menus.png'
-import ProfileIcon from '/profile-user.png'
 import CloseButton from '/close-button.png'
 
-import { username } from '../../atoms'
-import { useRecoilState } from 'recoil'
 import "../../assets/header.css"
 
+import { useRecoilState } from 'recoil'
+import { username } from '../../atoms'
+import { useEffect, useCallback } from "react";
+
 export default function Header(){
+    const navigate = useNavigate();
     const [userLoggedIn, setUserLoggedIn] = useRecoilState(username);
 
     const mobileMenuBox = useRef();
@@ -20,13 +22,38 @@ export default function Header(){
         mobileMenuBox.current.style.display = "none";
     } 
 
-    const navigate = useNavigate();
     function logoutUser(){
         localStorage.removeItem('auth_token');
         setUserLoggedIn('');
         closeMenu();
         navigate('/');
     }
+
+    
+    const [_username, setUsername] = useRecoilState(username);
+    const loginWithToken = useCallback(async (token)=>{
+        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/login', {
+        method: 'POST',
+        headers: {
+            'auth': token
+        },
+        credentials: 'include',
+        mode: 'cors'
+        });
+        
+        let data = await response.json();
+        setUsername(data.username.split(" ")[0]);
+        if(response.status === 200){
+            navigate("/");
+            }
+    
+    }, [_username]);
+  
+    useEffect(()=>{
+        const token = localStorage.getItem('auth_token');
+        if(token) loginWithToken(token);
+    }, [])
+
     return (
         <>
             <div id="header">
@@ -130,12 +157,30 @@ export default function Header(){
                     {
                         localStorage.getItem('auth_token') && userLoggedIn
                         ? 
-                        <Link id="mobile-login-btn" className="link-component" onClick={closeMenu} to="/profile">
-                            <img src={ProfileIcon}/>
+                        <Link id="mobile-login-btn" className="link-component" onClick={closeMenu} to="/cart">
+                            <svg width="18px" height="18px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            
+                                <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                    <g id="Icon-Set-Filled" transform="translate(-518.000000, -725.000000)" fill="#000000">
+                                        <path d="M528,751 C529.104,751 530,751.896 530,753 C530,754.104 529.104,755 528,755 C526.896,755 526,754.104 526,753 C526,751.896 526.896,751 528,751 L528,751 Z M524,753 C524,755.209 525.791,757 528,757 C530.209,757 532,755.209 532,753 C532,750.791 530.209,749 528,749 C525.791,749 524,750.791 524,753 L524,753 Z M526,747 C524.896,747 524,746.104 524,745 C524,745 547,743 546.972,743.097 C547.482,741.2 549.979,730.223 550,730 C550.054,729.45 549.553,729 549,729 L524,729 L524,727 L525,727 C525.553,727 526,726.553 526,726 C526,725.448 525.553,725 525,725 L519,725 C518.447,725 518,725.448 518,726 C518,726.553 518.447,727 519,727 L522,727 L522,745 C522,747.209 523.791,749 526,749 L549,749 C549.031,749 549,748.009 549,747 L526,747 L526,747 Z M540,751 C541.104,751 542,751.896 542,753 C542,754.104 541.104,755 540,755 C538.896,755 538,754.104 538,753 C538,751.896 538.896,751 540,751 L540,751 Z M536,753 C536,755.209 537.791,757 540,757 C542.209,757 544,755.209 544,753 C544,750.791 542.209,749 540,749 C537.791,749 536,750.791 536,753 L536,753 Z" id="cart-2">
+
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
                         </Link>
                         :
                         <Link id="mobile-login-btn" className="link-component" onClick={closeMenu} to="/login">
-                            <img src={ProfileIcon}/>
+                            <svg width="18px" height="18px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            
+                                <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                    <g id="Icon-Set-Filled" transform="translate(-518.000000, -725.000000)" fill="#000000">
+                                        <path d="M528,751 C529.104,751 530,751.896 530,753 C530,754.104 529.104,755 528,755 C526.896,755 526,754.104 526,753 C526,751.896 526.896,751 528,751 L528,751 Z M524,753 C524,755.209 525.791,757 528,757 C530.209,757 532,755.209 532,753 C532,750.791 530.209,749 528,749 C525.791,749 524,750.791 524,753 L524,753 Z M526,747 C524.896,747 524,746.104 524,745 C524,745 547,743 546.972,743.097 C547.482,741.2 549.979,730.223 550,730 C550.054,729.45 549.553,729 549,729 L524,729 L524,727 L525,727 C525.553,727 526,726.553 526,726 C526,725.448 525.553,725 525,725 L519,725 C518.447,725 518,725.448 518,726 C518,726.553 518.447,727 519,727 L522,727 L522,745 C522,747.209 523.791,749 526,749 L549,749 C549.031,749 549,748.009 549,747 L526,747 L526,747 Z M540,751 C541.104,751 542,751.896 542,753 C542,754.104 541.104,755 540,755 C538.896,755 538,754.104 538,753 C538,751.896 538.896,751 540,751 L540,751 Z M536,753 C536,755.209 537.791,757 540,757 C542.209,757 544,755.209 544,753 C544,750.791 542.209,749 540,749 C537.791,749 536,750.791 536,753 L536,753 Z" id="cart-2">
+
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
                         </Link>
                     }
                     

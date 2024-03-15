@@ -87,7 +87,6 @@ export default function ProductDesc(props){
     useEffect(()=>{
         getProduct();
         window.scrollTo(0, 0);
-        console.log('ran');
     }, [getProduct])
     
     return (

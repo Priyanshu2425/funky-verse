@@ -8,6 +8,9 @@ export default function Cart(){
 
     const [cart, setCart] = useState([]);
     
+    async function paymentPortal(){
+        
+    }
     useEffect(()=>{
 
         async function getCart(){
@@ -35,7 +38,7 @@ export default function Cart(){
             <div id="cart">
                 <div className='inter-thin' style={{'width': '90%', 'margin': '0 auto', 'display': 'flex', 'justifyContent': 'space-between'}}> 
                     <h2>Shopping Cart ({cart.length})</h2>
-                    <button id="checkout-btn">Checkout</button>
+                    <button id="checkout-btn" onClick={paymentPortal}>Checkout</button>
                 </div>
                 {cart.length === 0 
                     ?

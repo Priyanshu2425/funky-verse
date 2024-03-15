@@ -59,6 +59,7 @@ export default function Register(){
                 mode: "cors"
             }).then((response)=>{
                 response.json().then((data)=>{
+                    //send actual otp
                     console.log(data);
                 })
             });

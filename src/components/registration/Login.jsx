@@ -56,7 +56,6 @@ export default function Login(){
                 setMessageType('');
             }, 1500);
         }
-        console.log(data, response.status);
     }
 
     return (
