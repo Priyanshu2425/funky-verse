@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
 
 import Header from './components/template/Header'
 import Banner from './components/template/Banner'
@@ -24,6 +25,10 @@ import ProductDesc from "./components/products/ProductDesc";
 
 
 function App() {
+
+  useEffect(()=>{
+    console.log("app is reloading");
+  })
 
   return (
     <>

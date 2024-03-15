@@ -52,6 +52,7 @@ export default function Header(){
     useEffect(()=>{
         const token = localStorage.getItem('auth_token');
         if(token) loginWithToken(token);
+        console.log()
     }, [])
 
     return (
