@@ -84,6 +84,38 @@ export default function ProductDesc(props){
         setAddingToCart(false);
     }
 
+    async function buynow(){
+        console.log("buying now");
+        setBuyingNow(true);
+
+        let transactionDetails = {
+            "amount": quantity*product.discountPrice,
+            "productId": product._id,
+            "size": selectedSize,
+            "quantity": quantity
+        }
+
+        async function buyNowReq(){
+            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/buynow", {
+                "method": "POST",
+                "headers": {
+                    "auth": localStorage.getItem('auth_token'),
+                    "Content-Type": "application/json"
+                },
+                "credentials": "include",
+                "body": JSON.stringify(transactionDetails)
+            })
+
+            let data = await response.json();
+            console.log(data.url);
+            setTimeout(()=>{
+                window.location.href = data.url;
+            }, 2000);
+        }
+        buyNowReq();
+        setBuyingNow(false);
+    }
+
     useEffect(()=>{
         getProduct();
         window.scrollTo(0, 0);
@@ -167,7 +199,7 @@ export default function ProductDesc(props){
                                 }
                                 {buyingNow
                                  ? <button><CircularProgress size={20} color="inherit"/></button>
-                                 : <button>Buy Now</button>}
+                                 : <button onClick={buynow}>Buy Now</button>}
                                 
                             </div>
                         </div>
