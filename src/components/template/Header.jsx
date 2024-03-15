@@ -8,6 +8,7 @@ import "../../assets/header.css"
 import { useRecoilState } from 'recoil'
 import { username } from '../../atoms'
 import { useEffect, useCallback } from "react";
+import { nullable } from 'zod'
 
 export default function Header(){
     const navigate = useNavigate();
@@ -26,6 +27,7 @@ export default function Header(){
         localStorage.removeItem('auth_token');
         setUserLoggedIn('');
         closeMenu();
+        navigate('/');
     }
 
     
@@ -42,9 +44,7 @@ export default function Header(){
         
         let data = await response.json();
         setUsername(data.username.split(" ")[0]);
-        if(response.status === 200){
-            navigate("/");
-            }
+
     
     }, [_username]);
   
