@@ -59,7 +59,7 @@ export default function Header(){
             <div id="header">
                 <div id="desktop-menu">
                     <div id="logo">
-                        <Link className="link-component"  to="/"><div className='inter-exp'>FUNKYVERSE</div></Link>
+                        <Link className="link-component"  to="/"><div className='orbitron'>FUNKYVERSE</div></Link>
                     </div>
 
                     <nav className='inter-thin'>
@@ -150,7 +150,7 @@ export default function Header(){
 
                     <img id="mobile-menu-btn" onClick={openMenu} src={MenuIcon}/>
 
-                    <div id="mobile-logo" className='inter-exp'>
+                    <div id="mobile-logo" className='orbitron'>
                         <Link className="link-component"  to="/">FUNKYVERSE</Link>
                     </div>
 

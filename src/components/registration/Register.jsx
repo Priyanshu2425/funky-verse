@@ -7,7 +7,6 @@ import VerifiedIcon from "/verified.png"
 import ClothingBanner from "/clothingbanner.jpg"
 import "../../assets/login.css"
 import "../../assets/register.css"
-import { useAnimate } from "framer-motion"
 
 import { username } from "../../atoms"
 import { useSetRecoilState } from 'recoil'

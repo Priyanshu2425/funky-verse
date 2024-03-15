@@ -1,9 +1,56 @@
 #profile{
-    margin-top: 15%;
+    padding: 1%;
+    margin: 0 5%;
+    margin-top: 10%;
+}
+
+#profile div{
+    margin: 2% auto;
+    padding: 2%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+#add-address-button{
+    padding: 10px 20px;
+    color: white;
+    background-color: black;
+}
+
+#profile-add-address{
+    margin-right: 50% !important;
 }
 
 @media only screen and (max-width: 800px){
     #profile{
+        margin: 0 5%;
         margin-top: 10vh;
     }
+
+    #profile div{
+        padding: 5%;
+    }
+
+    #profile-add-address{
+        margin-right: 0 !important;
+    }
+
+}
+
+@media only screen and (max-width: 650px){
+    #profile{
+        margin: 0 5%;
+        margin-top: 10vh;
+    }
+
+    #profile div{
+        padding: 5%;
+    }
+
+
+
 }
