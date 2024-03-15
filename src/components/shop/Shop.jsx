@@ -7,7 +7,6 @@ export default function Shop(){
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
-        console.log('was at shop');
         async function getProducts(){
             let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/products", {
                 method: "GET",

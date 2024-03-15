@@ -84,10 +84,6 @@ function App() {
               <DeliveryPolicy/>
             </>}></Route>
 
-            <Route path='/return' exact element={<>
-              <Return/>
-            </>}></Route>
-
             <Route path='/profile' exact element={<>
               <Profile/>
             </>}></Route>
