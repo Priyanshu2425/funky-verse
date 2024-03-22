@@ -52,7 +52,7 @@ export default function Register(){
             verifyBtn.current.style.display = "block";
             
             //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
-            let response = await fetch("http://localhost:3000/.netlify/functions/api/user/otp",{
+            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp",{
                 method: "POST",
                 headers:{
                     'Content-Type': 'application/json'
