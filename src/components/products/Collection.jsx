@@ -12,9 +12,7 @@ export default function Collection(props){
         
         async function getProducts(){
             let response = await fetch(" https://funkyverse-backend.netlify.app/.netlify/functions/api/products", {
-                method: "GET",
-                credentials: "include",
-                mode: "cors"
+                method: "GET"
             });
 
             let data = await response.json();

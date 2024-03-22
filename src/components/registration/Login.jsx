@@ -32,8 +32,7 @@ export default function Login(){
             headers: {
                 'email': email,
                 'password': password
-            },
-            credentials: 'include',
+            }
         })
 
         let data = await response.json();

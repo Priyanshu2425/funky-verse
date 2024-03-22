@@ -57,8 +57,7 @@ export default function Register(){
                 headers:{
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({'email': email}),
-                credentials: "include",
+                body: JSON.stringify({'email': email})
             })
             
             let data = await response.json();
@@ -87,7 +86,6 @@ export default function Register(){
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    credentials: "include",
                     body: JSON.stringify({"userOTP": otp}),
                 });
                 
@@ -119,9 +117,7 @@ export default function Register(){
                     headers: {
                         'Content-Type': 'application/json'
                     }, 
-                    body: JSON.stringify(userData),
-                    credentials: "include",
-                    mode: "cors"
+                    body: JSON.stringify(userData)
                 })
                 
                 let message = await response.json();

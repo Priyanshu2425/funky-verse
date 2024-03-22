@@ -36,9 +36,7 @@ export default function Header(){
         method: 'POST',
         headers: {
             'auth': token
-        },
-        credentials: 'include',
-        mode: 'cors'
+        }
         });
         
         let data = await response.json();

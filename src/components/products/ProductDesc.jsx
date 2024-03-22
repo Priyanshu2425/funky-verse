@@ -40,9 +40,7 @@ export default function ProductDesc(props){
             method: 'GET',
             headers: {
                 'auth': localStorage.getItem('auth_token')
-            },
-            credentials:'include',
-            mode: "cors"
+            }
         })
         let data = await response.json();
         setProduct(data.product[0]);
@@ -74,9 +72,7 @@ export default function ProductDesc(props){
                 'Content-Type': 'application/json',
                 'auth': localStorage.getItem('auth_token')
             },
-            body: JSON.stringify(data),
-            credentials: 'include',
-            mode: "cors"
+            body: JSON.stringify(data)
         })
 
         let responseData = await response.json();
@@ -102,7 +98,6 @@ export default function ProductDesc(props){
                     "auth": localStorage.getItem('auth_token'),
                     "Content-Type": "application/json"
                 },
-                "credentials": "include",
                 "body": JSON.stringify(transactionDetails)
             })
 

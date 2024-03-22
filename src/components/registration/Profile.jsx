@@ -22,8 +22,7 @@ export default function Profile(){
                     "auth": localStorage.getItem('auth_token'),
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({"address": address}),
-                credentials: 'include'
+                body: JSON.stringify({"address": address})
             })
             let data = await response.json();
             console.log(data);
@@ -39,8 +38,7 @@ export default function Profile(){
             method: 'GET',
             headers:{
                 'auth': localStorage.getItem('auth_token')
-            },
-            credentials: 'include'
+            }
         })
 
         let data = await response.json();

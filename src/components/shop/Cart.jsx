@@ -18,8 +18,7 @@ export default function Cart(){
                 method: 'GET',
                 headers: {
                     "auth": localStorage.getItem('auth_token')
-                },
-                credentials: 'include'
+                }
             })
 
             let data = await response.json();
