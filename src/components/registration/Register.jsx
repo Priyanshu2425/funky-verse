@@ -57,7 +57,8 @@ export default function Register(){
                 headers:{
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({'email': email})
+                body: JSON.stringify({'email': email}),
+                cors: 'no-cors'
             })
             
             let data = await response.json();
@@ -87,6 +88,7 @@ export default function Register(){
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({"userOTP": otp}),
+                    cors: 'no-cors'
                 });
                 
                 if(response.status === 200){
@@ -117,7 +119,8 @@ export default function Register(){
                     headers: {
                         'Content-Type': 'application/json'
                     }, 
-                    body: JSON.stringify(userData)
+                    body: JSON.stringify(userData),
+                    cors: 'no-cors'
                 })
                 
                 let message = await response.json();

@@ -11,7 +11,8 @@ export default function CartItem(props){
                 'Content-Type': 'application/json',
                 'auth': localStorage.getItem('auth_token')
             },
-            body: JSON.stringify(props.product)
+            body: JSON.stringify(props.product),
+            cors: 'no-cors'
         })
 
         let data = await response.json();
