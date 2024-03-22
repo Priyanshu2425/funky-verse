@@ -59,7 +59,6 @@ export default function Register(){
                 },
                 body: JSON.stringify({'email': email}),
                 credentials: "include",
-                mode: "cors"
             })
             
             let data = await response.json();
@@ -90,7 +89,6 @@ export default function Register(){
                     },
                     credentials: "include",
                     body: JSON.stringify({"userOTP": otp}),
-                    mode: "cors"
                 });
                 
                 if(response.status === 200){

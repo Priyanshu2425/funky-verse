@@ -34,7 +34,6 @@ export default function Login(){
                 'password': password
             },
             credentials: 'include',
-            mode: 'cors'
         })
 
         let data = await response.json();
