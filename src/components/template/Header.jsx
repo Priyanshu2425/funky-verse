@@ -8,7 +8,6 @@ import "../../assets/header.css"
 import { useRecoilState } from 'recoil'
 import { username } from '../../atoms'
 import { useEffect, useCallback } from "react";
-import { nullable } from 'zod'
 
 export default function Header(){
     const navigate = useNavigate();
@@ -47,11 +46,26 @@ export default function Header(){
 
     
     }, [_username]);
-  
+    
+
+    // Get the header
+    
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+        var header = document.getElementById("header");
+        if (window.scrollY > 0) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+
     useEffect(()=>{
         const token = localStorage.getItem('auth_token');
         if(token) loginWithToken(token);
         console.log()
+        
+        window.onscroll = function() {myFunction()};
     }, [])
 
     return (

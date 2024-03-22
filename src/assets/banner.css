@@ -1,7 +1,6 @@
 #banner{
     display: flex;
     width: 100%;
-    margin-top: 15%;
 }
 
 #banner img{
@@ -18,9 +17,9 @@
     aspect-ratio: 1/1;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 870px){
     #banner{
-        margin-top: 10vh;
+        margin-top: 0 !important;
     }
 }
 /* main {

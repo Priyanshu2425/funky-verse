@@ -35,7 +35,7 @@ export default function Register(){
     let getOTPbtn = useRef();
     let otpMessage = useRef();
 
-    function getOTP(){
+    async function getOTP(){
         const emailSchema = z.string().email().min(7);
         try{
             emailSchema.parse(email);
@@ -52,17 +52,18 @@ export default function Register(){
             verifyBtn.current.style.display = "block";
             
             //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
-            fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp",{
-                method: "GET",
+            let response = await fetch("http://localhost:3000/.netlify/functions/api/user/otp",{
+                method: "POST",
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'email': email}),
                 credentials: "include",
                 mode: "cors"
-            }).then((response)=>{
-                response.json().then((data)=>{
-                    //send actual otp
-                    console.log(data);
-                })
-            });
-
+            })
+            
+            let data = await response.json();
+            console.log(data);
             otpMessage.current.innerHTML = "OTP Sent";
         }catch(error){
             if(error.name === "ZodError"){
