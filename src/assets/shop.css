@@ -40,7 +40,7 @@
 }
 @media only screen and (max-width: 500px){
     .shop{
-        margin-top: 20%;
+        margin-top: 2%;
     }
     #shop-content{
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -49,7 +49,7 @@
 
 @media screen and (max-width: 400px){
     .shop{
-        margin-top: 25%;
+        margin-top: 2%;
     }
     #shop-content{
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));

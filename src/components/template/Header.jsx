@@ -42,20 +42,20 @@ export default function Header(){
         
         let data = await response.json();
         setUsername(data.username.split(" ")[0]);
-
     
     }, [_username]);
     
 
-    // Get the header
-    
-    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
         var header = document.getElementById("header");
+        var offset = header.offsetHeight;
+        var rootDiv = document.getElementById("root");
         if (window.scrollY > 0) {
             header.classList.add("sticky");
+            rootDiv.style.paddingTop = offset+"px";
         } else {
             header.classList.remove("sticky");
+            rootDiv.style.paddingTop = 0;
         }
     }
 

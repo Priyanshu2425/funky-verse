@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react'
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate} from "react-router-dom"
 import '../../assets/product-desc.css'
 import { useEffect } from "react";
 import Collection from './Collection';
@@ -7,6 +7,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function ProductDesc(props){
+    const navigate = useNavigate();
     const [product, setProduct] = useState();
     const [quantity, setQuantity] = useState(1);
     const [addingToCart, setAddingToCart] = useState(false);
@@ -81,9 +82,8 @@ export default function ProductDesc(props){
     }
 
     async function buynow(){
-        console.log("buying now");
         setBuyingNow(true);
-
+        if(!localStorage.getItem('auth_token')) navigate('/login');
         let transactionDetails = {
             "amount": quantity*product.discountPrice,
             "productId": product._id,
@@ -190,10 +190,10 @@ export default function ProductDesc(props){
                             <div className='checkout-btns'>
                                 {!addingToCart
                                  ? <button onClick={addToCart}>Add to Cart</button>
-                                 : <button><CircularProgress size={20} color="inherit"/></button>
+                                 : <button ><CircularProgress color='inherit' size={14}/></button>
                                 }
                                 {buyingNow
-                                 ? <button><CircularProgress size={20} color="inherit"/></button>
+                                 ? <button ><CircularProgress color='inherit' size={14}/></button>
                                  : <button onClick={buynow}>Buy Now</button>}
                                 
                             </div>

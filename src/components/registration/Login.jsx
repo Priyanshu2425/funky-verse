@@ -5,6 +5,7 @@ import ClothingBanner from "/clothingbanner.jpg"
 import "../../assets/login.css"
 import { useSetRecoilState } from 'recoil'
 import { username } from '../../atoms'
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Login(){
     const navigate = useNavigate();
@@ -19,8 +20,10 @@ export default function Login(){
     const changeEmail = (event)=>setEmail(event.target.value);
     const changePassword = (event)=>setPassword(event.target.value);
 
+    const [loggingIn, setLoggingIn] = useState(false);
     async function handleLogin(event){
         event.preventDefault();
+        setLoggingIn(true);
         if(!email || !password){
             setMessage("Invalid email/password");
             setMessageType("error-btn");
@@ -55,6 +58,7 @@ export default function Login(){
                 setMessageType('');
             }, 1500);
         }
+        setLoggingIn(false);
     }
 
     return (
@@ -75,7 +79,9 @@ export default function Login(){
                     <input type="email" placeholder="Email" onChange={changeEmail}/>
                     <input type="password" placeholder="Password" onChange={changePassword}/>
                     <br/> 
-                    <button>Submit</button>
+                    {loggingIn ? 
+                     <button id='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
+                     : <button id="submit-btn">Submit</button>}
                 </form>
             </div>
         </>

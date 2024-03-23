@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../../assets/profile.css'
 import { grey } from '@mui/material/colors';
 import CircularProgress from '@mui/material/CircularProgress';
+import Order from './Order';
 
 export default function Profile(){
     const [userProfile, setUserProfile] = useState('');
@@ -25,7 +26,6 @@ export default function Profile(){
                 body: JSON.stringify({"address": address})
             })
             let data = await response.json();
-            console.log(data);
         }
         
         addAddressReq();
@@ -42,7 +42,6 @@ export default function Profile(){
         })
 
         let data = await response.json();
-        console.log(data);
         setUserProfile(data.data);
     }
     
@@ -50,6 +49,7 @@ export default function Profile(){
         getUserData();
     }, [])
 
+    if(!userProfile) return <></>
     return (
         <>
             <div id="profile" className='inter-thin'>
@@ -57,13 +57,7 @@ export default function Profile(){
                     <p style={{fontSize: "1.2rem", fontWeight: 500}}>{userProfile.name}</p>
                     <p> Email: {userProfile.email}</p>
                     <p> Mobile: {userProfile.mobile}</p>
-                    <p> Orders: {userProfile.orders}</p>
-                </div>
-
-                <div id="profile-orders">
-                    <p style={{fontSize: "1.2rem", fontWeight: 500}}>My orders</p>
-                    <Link className='link-component' to='/orders'>View all</Link>
-                    {userProfile.orders}
+                    <p> Orders: {userProfile.orders.length}</p>
                 </div>
 
                 <div id="profile-addresses">
@@ -84,6 +78,15 @@ export default function Profile(){
                         }
                     </div>
                     <p></p>
+                </div>
+
+                <div id="profile-orders">
+                    <p style={{fontSize: "1.2rem", fontWeight: 500}}>My orders</p>
+                    <Link className='link-component' to='/orders'>View all</Link>
+                    {userProfile.orders.length}
+                    {userProfile.orders.map((item, index)=>{
+                        return <Order key={index} order={item}/>
+                    })}
                 </div>
             </div>
         </>

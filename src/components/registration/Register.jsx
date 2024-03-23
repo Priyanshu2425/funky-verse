@@ -7,7 +7,7 @@ import VerifiedIcon from "/verified.png"
 import ClothingBanner from "/clothingbanner.jpg"
 import "../../assets/login.css"
 import "../../assets/register.css"
-
+import { CircularProgress } from "@mui/material"
 import { username } from "../../atoms"
 import { useSetRecoilState } from 'recoil'
 
@@ -34,7 +34,7 @@ export default function Register(){
     let verifyBtn = useRef();
     let getOTPbtn = useRef();
     let otpMessage = useRef();
-
+    let btn2 = useRef();
     async function getOTP(){
         const emailSchema = z.string().email().min(7);
         try{
@@ -50,7 +50,7 @@ export default function Register(){
             }
             getOTPbtn.current.style.display = "none";
             verifyBtn.current.style.display = "block";
-            
+            btn2.current.style.display = "flex";
             //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
             let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp",{
                 method: "POST",
@@ -78,7 +78,9 @@ export default function Register(){
         }
     }
 
+    const [verifyingOTP, setVerifyingOTP] = useState(false);
     function verifyOTP(){
+        setVerifyingOTP(true);
         async function sendVerifyReq(){
             if(otp.length === 6 && !otpVerified){
                 // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/match/otp
@@ -99,10 +101,13 @@ export default function Register(){
             }
         }
         sendVerifyReq();
+        setVerifyingOTP(false);
     }
 
-    function handleSubmit(event){   
+    const [registrationOngoing, setRegistrationOngoing] = useState(false);
+    function handleSubmit(event){ 
         event.preventDefault();
+        setRegistrationOngoing(true);  
 
         async function register(){
             if(otpVerified){
@@ -145,6 +150,7 @@ export default function Register(){
         }
 
         register();
+        setRegistrationOngoing(false);
     }
 
     // useEffect(()=>{
@@ -163,7 +169,7 @@ export default function Register(){
                 </span>
                 <br/>
                 <div id="message">
-                    {message && <div className={`message inter-regular ${messageType}`}> {message} </div> }
+                    {message && <div className={`message inter-thin ${messageType}`}> {message} </div> }
                 </div>
                 <br/>
                 <p className="inter-thin" id="form-title">Register</p>
@@ -174,19 +180,22 @@ export default function Register(){
                     <input type="password" placeholder="Password" onChange={changePassword}/>
                     <input type="number" placeholder="Enter OTP" onChange={changeOTP}/>
                     <div id="otp-btn" >
-                        <button className="btn1" onClick={getOTP} ref={getOTPbtn}>GET OTP</button>
-                        <button className="btn1" onClick={verifyOTP} ref={verifyBtn} style={{display: "none"}}>VERIFY</button> 
-                        <div id="btn2">
+                        <button id="submit-btn" className="btn1 inter-thin" onClick={getOTP} ref={getOTPbtn}>GET OTP</button>
+                        <button id="submit-btn" className="btn1" onClick={verifyOTP} ref={verifyBtn} style={{display: "none"}}>
+                            VERIFY {verifyingOTP && <CircularProgress size={10} color="inherit"/>} </button> 
+                        
+                        <div id="btn2" ref={btn2}>
                             <button>
-                                {otpVerified ? 
-                                    <img style={{width: "25px"}} src={VerifiedIcon}/>
-                                    : <img style={{width: "15px"}} src={Reload}/>}
+                                {otpVerified && 
+                                    <img style={{width: "25px"}} src={VerifiedIcon}/>}
                             </button>
                         </div>
                         <div id="otp-message" ref={otpMessage}></div>
                     </div>
                     <br/> 
-                    <button className="inter-regular">Submit</button>
+                    {registrationOngoing ?
+                    <button id='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
+                    :<button id='submit-btn' className="inter-regular">Submit</button>}
                 </form>
             </div>
         </>

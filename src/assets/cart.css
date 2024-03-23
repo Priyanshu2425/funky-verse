@@ -1,5 +1,5 @@
 #cart{
-    margin-top: 12%;
+    margin-top: 2%;
     width: 100%;
     background-color: white;
     padding: 2%;
@@ -64,6 +64,6 @@
 
 @media only screen and (max-width: 800px){
     #cart{
-        margin-top: 11vh;
+        margin-top: 2%;
     }
 }

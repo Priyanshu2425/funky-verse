@@ -21,6 +21,7 @@ import TagLine from "./components/template/TagLine";
 import Profile from "./components/registration/Profile"
 import Cart from "./components/shop/Cart"
 import ProductDesc from "./components/products/ProductDesc";
+import CartCheckout from "./components/shop/CartCheckout";
 
 
 
@@ -100,7 +101,10 @@ function App() {
             <Route path='/product' exact element={<>
               <ProductDesc/>
             </>}></Route>
-          
+              
+            <Route path='/cartcheckout' exact element={<>
+              <CartCheckout/>
+            </>}></Route>
         </Routes>
       <Footer/>
       {/* </Suspense> */}

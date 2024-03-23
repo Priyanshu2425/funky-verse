@@ -57,7 +57,6 @@
 
 .message{
     padding: 1%;
-    border-radius: 5px;
 }
 
 .error-btn{
@@ -72,6 +71,10 @@
     background-color: #f0fdf4;
 }
 
+#submit-btn{
+    background-color: black;
+    color: white;
+}
 
 @media only screen and (max-width: 1000px) {
     #login-page{
