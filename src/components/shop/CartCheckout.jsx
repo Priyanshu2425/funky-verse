@@ -2,6 +2,7 @@ import { useState, useEffect, useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
 import CartItem from './CartItem';
 import '../../assets/cartcheckout.css'
+import { CircularProgress } from '@mui/material';
 
 export default function CartCheckout(){
     const navigate = useNavigate();
@@ -14,6 +15,9 @@ export default function CartCheckout(){
     const [mobile, setMobile] = useState("");
     const [address, setAddress] = useState("");
     const [couponCode, setCouponCode] = useState("");
+
+    const [payingOnline, setPayingOnline] = useState(false);
+    const [payingOffline, setPayingOffline] = useState(false);
 
     const [message, setMessage] = useState("");
     function changeCouponCode(event){
@@ -90,6 +94,7 @@ export default function CartCheckout(){
     // }
 
     async function onlinePayment(){
+        setPayingOnline(true);
         if(!mobile || !address){
             setMessage("Please fill in all the details");
             setTimeout(()=>{
@@ -113,10 +118,11 @@ export default function CartCheckout(){
         }
 
         console.log("payment initiated");
-
+        setPayingOnline(false);
     }
 
     async function offlinePayment(){
+        setPayingOffline(true);
         if(!mobile || !address){
             setMessage("Please fill in all the details");
             setTimeout(()=>{
@@ -153,6 +159,7 @@ export default function CartCheckout(){
             navigate('/profile');
         }
         console.log(data);
+        setPayingOffline(false);
     }
     
     useEffect(()=>{
@@ -224,7 +231,11 @@ export default function CartCheckout(){
                     </div>
                     <div id="final-price-checkout" className='inter-thin'>
                         <h2>TOTAL : ₹{cartTotal}</h2> 
-                        <button id="checkout-button-cart-checkout" onClick={onlinePayment}>PAY ONLINE</button>
+                        {
+                            payingOnline ? 
+                            <CircularProgress color="inherit" size={20}/>
+                            :<button id="checkout-button-cart-checkout" onClick={onlinePayment}>PAY ONLINE</button>
+                        }
                     </div>
                     <hr/>
                     <div>
@@ -232,7 +243,12 @@ export default function CartCheckout(){
                         <h2>TOTAL : ₹{cartTotal + 60}</h2> 
                         
                         <div>
-                        <button id="checkout-button-cart-checkout" onClick={offlinePayment}>PAY CASH ON DELIVERY</button>
+                        {
+                            payingOffline?
+                            <CircularProgress color="inherit" size={20}/>
+                            :
+                            <button id="checkout-button-cart-checkout" onClick={offlinePayment}>PAY CASH ON DELIVERY</button>
+                        }
                         <br/><br/>
                         <p>+₹60 for cash on delivery</p>
                         </div>

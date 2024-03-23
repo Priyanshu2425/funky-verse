@@ -84,7 +84,7 @@ export default function Profile(){
                     <p style={{fontSize: "1.2rem", fontWeight: 500}}>My orders</p>
                     <Link className='link-component' to='/orders'>View all</Link>
                     {userProfile.orders.length}
-                    {userProfile.orders.map((item, index)=>{
+                    {userProfile.orders.reverse().map((item, index)=>{
                         return <Order key={index} order={item}/>
                     })}
                 </div>
