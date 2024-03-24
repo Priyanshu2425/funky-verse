@@ -80,8 +80,8 @@ export default function Login(){
                     <input type="password" placeholder="Password" onChange={changePassword}/>
                     <br/> 
                     {loggingIn ? 
-                     <button id='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
-                     : <button id="submit-btn">Submit</button>}
+                     <button className='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
+                     : <button className="submit-btn">Submit</button>}
                 </form>
             </div>
         </>

@@ -100,6 +100,7 @@ export default function CartCheckout(){
             setTimeout(()=>{
                 setMessage("");
             }, 5000);
+            setPayingOnline(false);
             return;
         }
 
@@ -108,6 +109,7 @@ export default function CartCheckout(){
             setTimeout(()=>{
                 setMessage("");
             }, 5000);
+            setPayingOnline(false);
             return;
         }
 
@@ -117,8 +119,24 @@ export default function CartCheckout(){
             'coupon': couponCode
         }
 
-        console.log("payment initiated");
-        setPayingOnline(false);
+        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/online', {
+            method: 'POST',
+            headers: {
+                'auth': localStorage.getItem('auth_token'),
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+
+        let data = await response.json();
+        console.log(data.url);
+        if(data.url) {
+            setPayingOnline(false);
+            window.location = data.url;
+            console.log("payment initiated");   
+        }else{
+            setPayingOnline(false);
+        }
     }
 
     async function offlinePayment(){
@@ -128,6 +146,7 @@ export default function CartCheckout(){
             setTimeout(()=>{
                 setMessage("");
             }, 5000);
+            setPayingOffline(false);
             return;
         }
 
@@ -136,6 +155,7 @@ export default function CartCheckout(){
             setTimeout(()=>{
                 setMessage("");
             }, 5000);
+            setPayingOffline(false);
             return;
         }
 

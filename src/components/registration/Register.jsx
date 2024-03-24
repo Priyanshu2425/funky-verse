@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { z } from "zod"
 import BackButton from "/back-btn.png"
@@ -101,13 +101,16 @@ export default function Register(){
             }
         }
         sendVerifyReq();
-        setVerifyingOTP(false);
+        setTimeout(()=>{
+            setVerifyingOTP(false);
+        }, 2000);
     }
 
     const [registrationOngoing, setRegistrationOngoing] = useState(false);
     function handleSubmit(event){ 
+        setRegistrationOngoing(true); 
+         
         event.preventDefault();
-        setRegistrationOngoing(true);  
 
         async function register(){
             if(otpVerified){
@@ -139,23 +142,24 @@ export default function Register(){
                         setMessageType('');
                         navigate('/');
                     }   , 1500);
-                }else if(response.status === 204){
+                }else if(response.status === 400){
                     setMessage("User exists already. Please log in.");
                     setMessageType("error-btn");
                 }else{
                     setMessage("Error signing up");
                     setMessageType("error-btn");
                 }
+                setTimeout(()=>{
+                    setMessage('');
+                }, 3000);
             }
         }
 
         register();
-        setRegistrationOngoing(false);
+        setTimeout(()=>{
+            setRegistrationOngoing(false);
+        }, 2000);
     }
-
-    // useEffect(()=>{
-    //     setTimeout(()=>setMessage(""), 5000);
-    // }, [message]);
 
     return (
         <>  
@@ -180,8 +184,8 @@ export default function Register(){
                     <input type="password" placeholder="Password" onChange={changePassword}/>
                     <input type="number" placeholder="Enter OTP" onChange={changeOTP}/>
                     <div id="otp-btn" >
-                        <button id="submit-btn" className="btn1 inter-thin" onClick={getOTP} ref={getOTPbtn}>GET OTP</button>
-                        <button id="submit-btn" className="btn1" onClick={verifyOTP} ref={verifyBtn} style={{display: "none"}}>
+                        <button  className="btn1 inter-thin submit-btn" onClick={getOTP} ref={getOTPbtn}>GET OTP</button>
+                        <button  className="btn1 submit-btn" onClick={verifyOTP} ref={verifyBtn} style={{display: "none"}}>
                             VERIFY {verifyingOTP && <CircularProgress size={10} color="inherit"/>} </button> 
                         
                         <div id="btn2" ref={btn2}>
@@ -194,8 +198,8 @@ export default function Register(){
                     </div>
                     <br/> 
                     {registrationOngoing ?
-                    <button id='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
-                    :<button id='submit-btn' className="inter-regular">Submit</button>}
+                    <button className='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
+                    :<button className="inter-regular submit-btn">Submit</button>}
                 </form>
             </div>
         </>
