@@ -7,17 +7,18 @@ import '../../assets/banner.css'
 
 import VideoSrc from '/FUNKYVERSE-2.MP4?url'
 
-const isSafari = () => {
-  const ua = navigator.userAgent.toLowerCase();
-  return ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 0;
-};
+// const isSafari = () => {
+//   const ua = navigator.userAgent.toLowerCase();
+//   return ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 0;
+// };
 
 export default function Banner(){
     
     const videoParentRef = useRef();
     const [shouldUseImage, setShouldUseImage] = useState(false);
     useEffect(() => {
-        if (isSafari() && videoParentRef.current) {
+        // isSafari() &&
+        if ( videoParentRef.current) {
         const player = videoParentRef.current.children[0];
 
         if (player) {
