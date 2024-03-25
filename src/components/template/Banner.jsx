@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState} from 'react'
 import '../../assets/banner.css'
 // import BannerImg from '/banner.jpg'
 // import BannerVideo from '/bannerlogo.mp4'
@@ -7,50 +7,61 @@ import '../../assets/banner.css'
 
 import VideoSrc from '/FUNKYVERSE-2.MP4?url'
 
-import '@vidstack/react/player/styles/base.css';
-import { MediaPlayer, MediaProvider } from '@vidstack/react';
+const isSafari = () => {
+  const ua = navigator.userAgent.toLowerCase();
+  return ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 0;
+};
 
 export default function Banner(){
+    
+    const videoParentRef = useRef();
+    const [shouldUseImage, setShouldUseImage] = useState(false);
+    useEffect(() => {
+        if (isSafari() && videoParentRef.current) {
+        const player = videoParentRef.current.children[0];
 
-    useEffect(()=>{
-        // const videoPlayer = document.getElementById("bannerVid");
-        // videoPlayer.autoPlay = "true";
-        // videoPlayer.loop = "true";
-        // videoPlayer.muted = "true";
-    }, [])
-    let i = 1;
-    if(i){
-        return (
-            <>
-                <div id="banner"> 
-                    {/* <div id="banner-img-one">
-                        <img src={BrandImageOne}/>
-                    </div>
-                    <div id="banner-img-two">
-                        <img src={BrandImageTwo}/>
-                    </div> */}
-                    
-                    <MediaPlayer load="visible" posterLoad="visible" title="Sprite Fight" src={VideoSrc} autoPlay loop>
-                        <MediaProvider />
-                    </MediaPlayer>
-                </div>
-            </>
-        )
-    }
-    return (
-        <>
-            <main>
-                {/* <h1> WINTER SALE </h1>
-                <h2> UPTO 30% OFF </h2> */}
-                {/* <span id="funky">FUNKY</span>
-                <span id="verse">VERSE</span>
-                <h1> WINTER SALE </h1>
-                <h4> Upto 60% off</h4> */}
-                {/* <video id="bannerVid">
-                    <source src={BannerVideo} type="video/mp4"></source>
-                    Your browser does not support the video tag.
-                </video> */}
-            </main>
-        </>
-    )
+        if (player) {
+            player.controls = false;
+            player.playsinline = true;
+            player.muted = true;
+            player.setAttribute("muted", ""); 
+            player.autoplay = true;
+
+            setTimeout(() => {
+            const promise = player.play();
+            if (promise.then) {
+                promise
+                .then(() => {})
+                .catch(() => {
+                    videoParentRef.current.style.display = "none";
+                    setShouldUseImage(true);
+                });
+            }
+            }, 0);
+        }
+        }
+    }, []);
+
+    
+    return shouldUseImage ? (
+        <img src={VideoSrc} alt="Muted Video" />
+    ) : (
+        <main id="banner">
+            <div
+            ref={videoParentRef}
+            dangerouslySetInnerHTML={{
+                __html: `
+                <video
+                loop
+                muted
+                autoplay
+                playsinline
+                preload="metadata"
+                >
+                <source src="${VideoSrc}" type="video/mp4" />
+                </video>`
+            }}
+            />
+        </main>
+  );
 }
