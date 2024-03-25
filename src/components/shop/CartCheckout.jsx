@@ -126,7 +126,7 @@ export default function CartCheckout(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(userInfo)
-        })
+        });
 
         let data = await response.json();
         console.log(data.url);

@@ -4,6 +4,10 @@ import BannerImg from '/banner.jpg'
 import BannerVideo from '/bannerlogo.mp4'
 import BrandImageOne from '/pexels-brand-image.jpg'
 import BrandImageTwo from '/pexels-brand-image2.jpg'
+import VideoSrc from '/FUNKYVERSE-2.MP4?url'
+import '@vidstack/react/player/styles/base.css';
+
+import { MediaPlayer, MediaProvider } from '@vidstack/react';
 
 export default function Banner(){
 
@@ -18,13 +22,15 @@ export default function Banner(){
         return (
             <>
                 <div id="banner"> 
-                    <div id="banner-img-one">
+                    {/* <div id="banner-img-one">
                         <img src={BrandImageOne}/>
                     </div>
                     <div id="banner-img-two">
                         <img src={BrandImageTwo}/>
-                    </div>
-
+                    </div> */}
+                    <MediaPlayer title="Sprite Fight" autoPlay src={VideoSrc} loop>
+                        <MediaProvider />
+                    </MediaPlayer>
                 </div>
             </>
         )

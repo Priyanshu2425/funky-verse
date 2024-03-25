@@ -13,13 +13,18 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.12",
+    "@vidstack/player": "^1.6.5",
+    "@vidstack/player-react": "^1.6.5",
+    "@vidstack/react": "^1.10.9",
     "axios": "^1.6.7",
     "framer-motion": "^11.0.8",
     "jsonwebtoken": "^9.0.2",
+    "lit": "^2.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazy-load-image-component": "^1.6.0",
     "recoil": "^0.7.7",
+    "video-react": "^0.16.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
