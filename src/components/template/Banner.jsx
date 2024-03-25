@@ -1,24 +1,23 @@
 import { useEffect, useRef, useState} from 'react'
 import '../../assets/banner.css'
-// import BannerImg from '/banner.jpg'
+import BannerImg from '/banner.jpg'
 // import BannerVideo from '/bannerlogo.mp4'
 // import BrandImageOne from '/pexels-brand-image.jpg'
 // import BrandImageTwo from '/pexels-brand-image2.jpg'
 
 import VideoSrc from '/FUNKYVERSE-2.MP4?url'
 
-// const isSafari = () => {
-//   const ua = navigator.userAgent.toLowerCase();
-//   return ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 0;
-// };
+const isSafari = () => {
+  const ua = navigator.userAgent.toLowerCase();
+  return ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 0;
+};
 
 export default function Banner(){
     
     const videoParentRef = useRef();
     const [shouldUseImage, setShouldUseImage] = useState(false);
     useEffect(() => {
-        // isSafari() &&
-        if ( videoParentRef.current) {
+        if (isSafari() && videoParentRef.current) {
         const player = videoParentRef.current.children[0];
 
         if (player) {
@@ -45,15 +44,7 @@ export default function Banner(){
 
     
     return shouldUseImage ? (
-        <video
-        loop
-        muted
-        autoPlay
-        playsInline
-        preload="metadata"
-        >
-        <source src={VideoSrc} type="video/mp4" />
-        </video>
+        <img src={BannerImg} alt="Muted Video" />
     ) : (
         <main>
             <div
