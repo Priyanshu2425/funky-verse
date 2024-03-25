@@ -44,7 +44,15 @@ export default function Banner(){
 
     
     return shouldUseImage ? (
-        <img src={VideoSrc} alt="Muted Video" />
+        <video
+        loop
+        muted
+        autoPlay
+        playsInline
+        preload="metadata"
+        >
+        <source src={VideoSrc} type="video/mp4" />
+        </video>
     ) : (
         <main>
             <div
