@@ -86,9 +86,9 @@ export default function Header(){
                                     <p id="shop">Shop</p>
                                 </Link>
 
-                                <Link className="link-component"  to="/about">
+                                {/* <Link className="link-component"  to="/about">
                                     <p id="shop">About Us</p>
-                                </Link>
+                                </Link> */}
 
                                 <Link className="link-component"  to="/faq">
                                     <p id="faq">FAQ</p>
@@ -207,9 +207,9 @@ export default function Header(){
                         <p id="shop">Shop</p>
                     </Link>
 
-                    <Link className="link-component" onClick={closeMenu} to="/about">
+                    {/* <Link className="link-component" onClick={closeMenu} to="/about">
                         <p id="shop">About Us</p>
-                    </Link>
+                    </Link> */}
 
                     <Link className="link-component" onClick={closeMenu} to="/faq">
                         <p id="faq">FAQ</p>

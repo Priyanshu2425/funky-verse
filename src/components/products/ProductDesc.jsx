@@ -17,7 +17,6 @@ export default function ProductDesc(props){
 
     const handleSizeChange = (value) => {
         setSelectedSize(value);
-        console.log(selectedSize);
     };
 
     function increaseQuantity(){
@@ -51,7 +50,6 @@ export default function ProductDesc(props){
 
     function changeImg(event){
         const src = event.target.src;
-        console.log(src);
         mainImage.current.src = src;
     }
 
@@ -78,7 +76,7 @@ export default function ProductDesc(props){
         })
 
         let responseData = await response.json();
-        console.log(responseData);
+
         setAddMessage("Added to Cart");
         setTimeout(()=>{
             setAddMessage("");
@@ -107,7 +105,6 @@ export default function ProductDesc(props){
             })
 
             let data = await response.json();
-            console.log(data.url);
             setTimeout(()=>{
                 window.location.href = data.url;
             }, 2000);

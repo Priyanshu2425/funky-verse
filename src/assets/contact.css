@@ -1,0 +1,9 @@
+#contact{
+    margin: 2% 5%;
+}
+
+#contact img{
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 100px;
+}
