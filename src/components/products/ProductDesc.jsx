@@ -192,9 +192,9 @@ export default function ProductDesc(props){
                                  ? <button onClick={addToCart}>Add to Cart</button>
                                  : <button ><CircularProgress color='inherit' size={14}/></button>
                                 }
-                                {buyingNow
+                                {/* {buyingNow
                                  ? <button ><CircularProgress color='inherit' size={14}/></button>
-                                 : <button onClick={buynow}>Buy Now</button>}
+                                 : <button onClick={buynow}>Buy Now</button>} */}
                                 
                             </div>
                         </div>

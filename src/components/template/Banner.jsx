@@ -46,7 +46,7 @@ export default function Banner(){
     return shouldUseImage ? (
         <img src={BannerImg} alt="Muted Video" />
     ) : (
-        <main>
+        <main id='banner'>
             <div
             ref={videoParentRef}
             dangerouslySetInnerHTML={{
