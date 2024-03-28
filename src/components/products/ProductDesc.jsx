@@ -55,6 +55,7 @@ export default function ProductDesc(props){
         mainImage.current.src = src;
     }
 
+    const [addMessage, setAddMessage] = useState("");
     async function addToCart(event){
         setAddingToCart(true);
         let data = {
@@ -78,6 +79,10 @@ export default function ProductDesc(props){
 
         let responseData = await response.json();
         console.log(responseData);
+        setAddMessage("Added to Cart");
+        setTimeout(()=>{
+            setAddMessage("");
+        }, 2000);
         setAddingToCart(false);
     }
 
@@ -192,6 +197,7 @@ export default function ProductDesc(props){
                                  ? <button onClick={addToCart}>Add to Cart</button>
                                  : <button ><CircularProgress color='inherit' size={14}/></button>
                                 }
+                                {addMessage}
                                 {/* {buyingNow
                                  ? <button ><CircularProgress color='inherit' size={14}/></button>
                                  : <button onClick={buynow}>Buy Now</button>} */}
