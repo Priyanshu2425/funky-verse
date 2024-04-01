@@ -44,7 +44,8 @@ export default function Banner(){
 
     
     return shouldUseImage ? (
-        <div
+        <main id='banner'>
+            <div
             ref={videoParentRef}
             dangerouslySetInnerHTML={{
                 __html: `
@@ -59,6 +60,7 @@ export default function Banner(){
                 </video>`
             }}
             />
+        </main>
     ) : (
         <main id='banner'>
             <div
