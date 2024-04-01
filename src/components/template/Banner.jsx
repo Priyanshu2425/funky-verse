@@ -43,9 +43,7 @@ export default function Banner(){
     }, []);
 
     
-    return shouldUseImage ? (
-        <img src={BannerImg} alt="Muted Video" />
-    ) : (
+    return (
         <main id='banner'>
             <div
             ref={videoParentRef}
@@ -63,5 +61,6 @@ export default function Banner(){
             }}
             />
         </main>
-  );
+    )
+  
 }
