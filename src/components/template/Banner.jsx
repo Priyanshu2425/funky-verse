@@ -43,7 +43,17 @@ export default function Banner(){
     }, []);
 
     
-    return (
+    return shouldUseImage ? (
+        <video
+        loop
+        muted
+        autoPlay
+        playsInline
+        preload="metadata"
+        >
+            <source src="${VideoSrc}" type="video/mp4" />
+        </video>
+    ) : (
         <main id='banner'>
             <div
             ref={videoParentRef}
@@ -61,6 +71,5 @@ export default function Banner(){
             }}
             />
         </main>
-    )
-  
+  );
 }
