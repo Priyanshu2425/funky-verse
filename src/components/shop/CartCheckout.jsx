@@ -4,6 +4,8 @@ import CartItem from './CartItem';
 import '../../assets/cartcheckout.css'
 import { CircularProgress } from '@mui/material';
 import Loading from '../template/Loading';
+import FinalCartItem from '../shop/FinalCartItem'
+
 export default function CartCheckout(){
     const navigate = useNavigate();
     //display
@@ -72,7 +74,7 @@ export default function CartCheckout(){
 
         let data = await response.json();
         setCurrentCart(data.cart.map((item,index)=>{
-            return <CartItem key={index} product={item} updateCart={getCart}/>
+            return <FinalCartItem key={index} product={item} updateCart={getCart}/>
             
         }));
     }
@@ -129,11 +131,9 @@ export default function CartCheckout(){
         });
 
         let data = await response.json();
-        console.log(data.url);
         if(data.url) {
             setPayingOnline(false);
             window.location = data.url;
-            console.log("payment initiated");   
         }else{
             setPayingOnline(false);
         }
@@ -178,7 +178,6 @@ export default function CartCheckout(){
         if(response.status === 200){
             navigate('/profile');
         }
-        console.log(data);
         setPayingOffline(false);
     }
     

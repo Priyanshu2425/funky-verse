@@ -3,21 +3,6 @@ import '../../assets/cart.css'
 
 export default function CartItem(props){
 
-    async function removeFromCart(){
-
-        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/remove",{
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
-                'auth': localStorage.getItem('auth_token')
-            },
-            body: JSON.stringify(props.product),
-            cors: 'no-cors'
-        })
-
-        let data = await response.json();
-        props.updateCart();
-    }
 
     return (
         <>
@@ -31,7 +16,6 @@ export default function CartItem(props){
                         <div className='cart-item-quantity'> 
                             Quantity: <span></span> {props.product.quantity} <span></span> </div>
                         </div>
-                        <button onClick={removeFromCart} className='cart-item-remove'>Delete</button>
                         
                         
                 </div>

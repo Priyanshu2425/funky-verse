@@ -36,7 +36,6 @@ export default function ProductDesc(props){
         if(div.classList.indexOf('product-desc-box') >= 0){
             div.classList.remove('product-desc-box');
             div.classList.add('product-desc-box-height-300');
-            console.log(open)
         }else{
             div.classList.remove('product-desc-box-height-300');
             div.classList.add('product-desc-box');

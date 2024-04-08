@@ -5,6 +5,9 @@ import { grey } from '@mui/material/colors';
 import CircularProgress from '@mui/material/CircularProgress';
 import Order from './Order';
 import Loading from '../template/Loading';
+import OrderPlacedIcon from '/orderplaced.png'
+
+
 export default function Profile(){
     const [userProfile, setUserProfile] = useState('');
     const [address, setAddress] = useState('');
@@ -47,9 +50,9 @@ export default function Profile(){
     
     useEffect(()=>{
         getUserData();
-        // setTimeout(()=>{
-        //     setOrderPlacedScreen(false);
-        // }, 4000);
+        setTimeout(()=>{
+            setOrderPlacedScreen(false);
+        }, 4000);
     }, [])
     const [orderPlacedScreen, setOrderPlacedScreen] = useState(true);
 
@@ -59,8 +62,10 @@ export default function Profile(){
         <>  
             {orderPlacedScreen ? 
                 <div style={{position: 'absolute', height: '100%', width: '100%', 
-                backgroundColor: 'white', top: 0, display: 'flex', justifyContent: 'center', alignItems:'center'}}>
-                    <div>ORDER PLACED</div>
+                backgroundColor: 'white', top: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', gap: '50px', textAlign:'center', fontSize: '1.2rem'}}>
+                    <div className='inter-thin'>ORDER PLACED</div>
+                    <img style={{width: '150px'}} src={OrderPlacedIcon}/>
+                    <div className='inter-thin'>THANK YOU FOR ORDERING</div>
                 </div> : <div></div>}
             <div id="profile" className='inter-thin'>
                 <div id="profile-info">
