@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import ContactUs from '/contactus.jpg.jpg'
 import '../../assets/contact.css'
 import Loading from '../template/Loading';
+import InstagramLogo from "/instagram.png"
+
 export default function Contact(){
 
     const [loading, setLoading] = useState(true);
@@ -30,9 +32,12 @@ export default function Contact(){
                     <br/><br/>
                     <img src={ContactUs}/>  
                     <br/><br/>
-                    <h3 className='inter-thin'>Email: thefunkyverse@gmail.com</h3>
+                    <h3 className='inter-thin'>Email: funkyverse3@gmail.com</h3>
 
-                    <h3 className='inter-thin'>Instagram: the_funkyverse</h3>
+                    <h3 className='inter-thin'>
+                    Instagram: <a href="https://www.instagram.com/the_funkyverse/" style={{textDecoration: 'none', color: 'black', cursor: 'black'}}>    
+                        the_funkyverse
+						</a></h3>
                 </div>
             </div>
         </>

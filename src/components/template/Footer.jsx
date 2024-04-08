@@ -36,7 +36,7 @@ export default function Footer(){
 							<img src={InstagramLogo} /> the_funkyverse{" "}
 						</a>
 						<br></br>
-						<a href="mailto:thefunkyverse@gmail.com">thefunkyverse@gmail.com</a>
+						<a href="mailto:thefunkyverse@gmail.com">funkyverse3@gmail.com</a>
 					</div>
 				</footer>
 			</>
