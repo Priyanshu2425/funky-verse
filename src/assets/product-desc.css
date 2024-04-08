@@ -111,6 +111,18 @@
 .checkout-btns button:nth-child(1){
     background-color: white;
 }
+
+.product-desc-box{
+    height: 0px;
+    display: none;
+    transition: height 2s;
+}
+
+.product-desc-box-height-300{
+    height: 300px;
+    display: block;
+}
+
 @media only screen and (max-width: 800px){
     .product-desc{
         margin-top: 15vh;

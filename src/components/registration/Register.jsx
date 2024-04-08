@@ -201,6 +201,8 @@ export default function Register(){
                     <button className='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
                     :<button className="inter-regular submit-btn">Submit</button>}
                 </form>
+                <br/><br/>
+                <Link to='/login'>Already a user? Login</Link>
             </div>
         </>
     )

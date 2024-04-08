@@ -1,6 +1,7 @@
 #right-img{
-    background: url('/trendsetting.jpg');
+    background: url('/coverphoto2.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 #left-text{

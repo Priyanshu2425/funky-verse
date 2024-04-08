@@ -22,6 +22,7 @@ import Profile from "./components/registration/Profile"
 import Cart from "./components/shop/Cart"
 import ProductDesc from "./components/products/ProductDesc";
 import CartCheckout from "./components/shop/CartCheckout";
+import SizeChart from "./components/shop/SizeChart";
 
 
 
@@ -41,11 +42,14 @@ function App() {
             <Route path='/' exact element={
               <>
                 <Banner/>
+                <Collection color="white" collection="TOP SELLERS"/>
+                <AdBannerRight/>
+
                 <Collection color="white" collection="FEATURED"/>
                 {/* <TagLine/> */}
                 <AdBannerLeft/>
                 <Collection color="#F5F6FB" collection="LATEST DROPS"/>
-                <AdBannerRight/>
+              
               </>
             }></Route>
 
@@ -105,6 +109,10 @@ function App() {
               
             <Route path='/cartcheckout' exact element={<>
               <CartCheckout/>
+            </>}></Route>
+
+            <Route path='/sizechart' exact element={<>
+              <SizeChart/>
             </>}></Route>
         </Routes>
       <Footer/>

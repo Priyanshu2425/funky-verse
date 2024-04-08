@@ -83,6 +83,8 @@ export default function Login(){
                      <button className='submit-btn' style={{padding: "6px"}}><CircularProgress color='inherit' size={20}/></button>
                      : <button className="submit-btn">Submit</button>}
                 </form>
+                <br/><br/>
+                <Link to='/register'>New here? Register</Link>
             </div>
         </>
     )

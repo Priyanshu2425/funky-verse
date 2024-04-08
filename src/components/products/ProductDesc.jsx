@@ -1,9 +1,10 @@
 import { useState, useCallback, useRef } from 'react'
-import { useLocation, useNavigate} from "react-router-dom"
+import { Link, useLocation, useNavigate} from "react-router-dom"
 import '../../assets/product-desc.css'
 import { useEffect } from "react";
 import Collection from './Collection';
 import CircularProgress from '@mui/material/CircularProgress';
+import { IoIosArrowForward } from "react-icons/io";
 
 
 export default function ProductDesc(props){
@@ -29,6 +30,25 @@ export default function ProductDesc(props){
         if(newQuantity < 1) setQuantity(1);
         else setQuantity(newQuantity);
     }
+
+    function showDescription(event){
+        let div = document.getElementById("product-desc-box-id");
+        if(div.classList.indexOf('product-desc-box') >= 0){
+            div.classList.remove('product-desc-box');
+            div.classList.add('product-desc-box-height-300');
+            console.log(open)
+        }else{
+            div.classList.remove('product-desc-box-height-300');
+            div.classList.add('product-desc-box');
+        }
+
+    }
+
+    function closeDescription(){
+        let div = document.getElementById("product-desc-box-id");
+        
+    }
+
     const location = useLocation();
 
 
@@ -145,7 +165,16 @@ export default function ProductDesc(props){
                                 ₹{product.discountPrice}.00
                                 <span style={{fontSize: '0.8rem', textDecoration: 'line-through', marginLeft: '10px'}}> ₹{product.price}.00 </span>
                             </p>
-                            
+                            <br/>
+                            <div> 
+                                <span>Select Size</span>
+                                <br/><br/>
+                                <Link to='/sizechart' className='link-component'>
+                                    <span style={{fontSize: "0.8rem", color: '#10b981', display: 'flex', 
+                                    'alignItems': 'center', fontWeight: 'bold'}}>SIZE CHART <IoIosArrowForward/></span>
+                                
+                                </Link>
+                             </div>
                             <div className='size'>
                                 <div
                                     className={`size-option ${selectedSize === 'S' ? 'selected' : ''}`}
@@ -191,7 +220,8 @@ export default function ProductDesc(props){
                             
                             <div className='checkout-btns'>
                                 {!addingToCart
-                                 ? <button onClick={addToCart}>Add to Cart</button>
+                                 ? localStorage.getItem('auth_token') ? <button onClick={addToCart}>Add to Cart</button>
+                                 : <Link to='/login'><button onClick={addToCart}>Add to Cart</button></Link>
                                  : <button ><CircularProgress color='inherit' size={14}/></button>
                                 }
                                 {addMessage}
@@ -202,6 +232,7 @@ export default function ProductDesc(props){
                             </div>
                         </div>
                         <div>
+                            <div> Description </div>
                             <p>Fabric: {product.fabric}</p>
                             <p>Fit: {product.fit}</p>
                             <p>Length: {product.length}</p>
@@ -213,8 +244,8 @@ export default function ProductDesc(props){
                             <p>Sleeve Styling: {product.sleeveStyling}</p>
                             <p>Wash Care: {product.washCare}</p>
                             <p>Weave Type: {product.weaveType}</p>
-                            <br/>
-                            <p> {product.description} </p>
+                            <div> Delivery </div>
+                            <div> We will deliver it to your doorsteps in 7 days.</div>
                         </div>
                     </div>
                 </div> 
