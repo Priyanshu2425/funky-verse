@@ -29,8 +29,8 @@ export default function ProductCard(props){
 
                     <div className='info'>
                         <div className="product-name inter-regular">{props.product.productName}</div>
-                        <div className="discount-price inter-thin"> Rs. {props.product.discountPrice} </div>
-                        <div className="product-price inter-thin"> Rs. {props.product.price} </div>
+                        <div className="discount-price inter-thin"> ₹ {props.product.discountPrice} </div>
+                        <div className="product-price inter-thin"> ₹ {props.product.price} </div>
                     </div>
 
                     {props.product.tags ? <div className="tags bestseller">
