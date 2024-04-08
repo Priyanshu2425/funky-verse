@@ -62,7 +62,6 @@ export default function Register(){
             })
             
             let data = await response.json();
-            console.log(data);
             otpMessage.current.innerHTML = "OTP Sent";
         }catch(error){
             if(error.name === "ZodError"){
@@ -111,7 +110,10 @@ export default function Register(){
         setRegistrationOngoing(true); 
          
         event.preventDefault();
-
+        if(!otpVerified){
+            setMessage('Please verify OTP');
+            setMessageType("error-btn");
+        }
         async function register(){
             if(otpVerified){
                 let userData = {
@@ -158,6 +160,8 @@ export default function Register(){
         register();
         setTimeout(()=>{
             setRegistrationOngoing(false);
+            setMessage('');
+            setMessageType("");
         }, 2000);
     }
 

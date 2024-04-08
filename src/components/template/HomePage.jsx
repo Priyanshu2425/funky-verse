@@ -25,13 +25,13 @@ export default function HomePage(){
     return (
         <>  
             <Banner/>
-            <Collection color="white" collection="TOP SELLERS"/>
+            <Collection color="#F5F6FB" collection="LATEST DROPS"/>
             <AdBannerRight/>
 
-            <Collection color="white" collection="FEATURED"/>
+            <Collection color="white" collection="TOP SELLERS"/>
             {/* <TagLine/> */}
             <AdBannerLeft/>
-            <Collection color="#F5F6FB" collection="LATEST DROPS"/>
+            <Collection color="white" collection="FEATURED"/>
         </>
     )
     

@@ -241,7 +241,7 @@ export default function ProductDesc(props){
                             </div>
                         </div>
                         <div>
-                            <div> Description </div>
+                            
                             <p>Fabric: {product.fabric}</p>
                             <p>Fit: {product.fit}</p>
                             <p>Length: {product.length}</p>
@@ -253,8 +253,7 @@ export default function ProductDesc(props){
                             <p>Sleeve Styling: {product.sleeveStyling}</p>
                             <p>Wash Care: {product.washCare}</p>
                             <p>Weave Type: {product.weaveType}</p>
-                            <div> Delivery </div>
-                            <div> We will deliver it to your doorsteps in 7 days.</div>
+                            
                         </div>
                     </div>
                 </div> 
