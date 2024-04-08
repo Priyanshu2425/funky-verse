@@ -24,7 +24,7 @@ export default function Cart(){
 
             let data = await response.json();
             setCart(data.cart.map((item,index)=>{
-                return <Link  key={index} className='link-component' to={`http://localhost:5173/product?id=${item.product}`}><CartItem product={item} updateCart={getCart}/></Link>
+                return <Link  key={index} className='link-component' to={`http://thefunkyverse.com/product?id=${item.product}`}><CartItem product={item} updateCart={getCart}/></Link>
                 
             }));
         }
