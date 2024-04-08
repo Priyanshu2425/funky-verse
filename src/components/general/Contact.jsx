@@ -1,6 +1,23 @@
+import { useState, useEffect } from 'react'
 import ContactUs from '/contactus.jpg.jpg'
 import '../../assets/contact.css'
+import Loading from '../template/Loading';
 export default function Contact(){
+
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
+    })
+
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
     return (
         <>
             <div id="contact">

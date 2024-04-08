@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect} from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { z } from "zod"
 import BackButton from "/back-btn.png"
@@ -10,7 +10,7 @@ import "../../assets/register.css"
 import { CircularProgress } from "@mui/material"
 import { username } from "../../atoms"
 import { useSetRecoilState } from 'recoil'
-
+import Loading from "../template/Loading"
 export default function Register(){
     const navigate = useNavigate();
     const setUsername = useSetRecoilState(username);
@@ -160,6 +160,21 @@ export default function Register(){
             setRegistrationOngoing(false);
         }, 2000);
     }
+
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
+    })
+
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
 
     return (
         <>  

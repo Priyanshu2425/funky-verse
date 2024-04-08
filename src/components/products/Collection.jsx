@@ -38,7 +38,6 @@ export default function Collection(props){
         // }))
 
         window.scrollTo(0, 0);
-				
     }, [])
 
     return (

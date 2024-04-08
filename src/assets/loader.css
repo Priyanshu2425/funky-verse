@@ -1,0 +1,50 @@
+.loader {
+  position: relative;
+  width: 60px; /* Adjusted width */
+  height: 60px; /* Adjusted height */
+}
+
+.loader:before {
+  content: '';
+  position: absolute;
+  width: 28px; /* Adjusted width */
+  height: 28px; /* Adjusted height */
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  transform: translate(-5px, -50%);
+  background: linear-gradient(to right, #fff 50%, #000 50%) no-repeat;
+  background-size: 200% auto;
+  background-position: 100% 0;
+  animation: colorBallMoveX 1s linear infinite alternate;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px; /* Adjusted width */
+  height: 60px; /* Adjusted height */
+  background: #000;
+}
+
+@keyframes colorBallMoveX {
+  0% {
+    background-position: 0% 0;
+    transform: translate(-15px, -50%);
+  }
+  15%, 25% {
+    background-position: 0% 0;
+    transform: translate(0px, -50%);
+  }
+  75%, 85% {
+    background-position: 100% 0;
+    transform: translate(30px, -50%); /* Adjusted value */
+  }
+  100% {
+    background-position: 100% 0;
+    transform: translate(40px, -50%); /* Adjusted value */
+  }
+}

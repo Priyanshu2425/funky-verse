@@ -4,7 +4,7 @@ import '../../assets/profile.css'
 import { grey } from '@mui/material/colors';
 import CircularProgress from '@mui/material/CircularProgress';
 import Order from './Order';
-
+import Loading from '../template/Loading';
 export default function Profile(){
     const [userProfile, setUserProfile] = useState('');
     const [address, setAddress] = useState('');
@@ -47,9 +47,14 @@ export default function Profile(){
     
     useEffect(()=>{
         getUserData();
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
     }, [])
+    const [loading, setLoading] = useState(true);
 
-    if(!userProfile) return <></>
+    
+    if(!userProfile) return <Loading/>
     return (
         <>
             <div id="profile" className='inter-thin'>

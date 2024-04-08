@@ -1,9 +1,10 @@
 import {useState, useEffect, useCallback} from 'react'
 import ProductCard from '../products/ProductCard';
-
+import Loading from '../template/Loading';
 import '../../assets/shop.css'
 
 export default function Shop(){
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
@@ -26,9 +27,16 @@ export default function Shop(){
         // }))
 
         window.scrollTo(0, 0);
-				
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
     }, [])
 
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
     return (
         <>
             <div className="shop">  

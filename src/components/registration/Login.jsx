@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import BackButton from "/back-btn.png"
 import ClothingBanner from "/clothingbanner.jpg"
@@ -6,7 +6,7 @@ import "../../assets/login.css"
 import { useSetRecoilState } from 'recoil'
 import { username } from '../../atoms'
 import CircularProgress from '@mui/material/CircularProgress';
-
+import Loading from '../template/Loading'
 export default function Login(){
     const navigate = useNavigate();
     const setUsername = useSetRecoilState(username);
@@ -20,6 +20,10 @@ export default function Login(){
     const changeEmail = (event)=>setEmail(event.target.value);
     const changePassword = (event)=>setPassword(event.target.value);
 
+    const [loading, setLoading] = useState(true);
+    
+
+    
     const [loggingIn, setLoggingIn] = useState(false);
     async function handleLogin(event){
         event.preventDefault();
@@ -60,6 +64,18 @@ export default function Login(){
         }
         setLoggingIn(false);
     }
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
+    })
+
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
 
     return (
         <>

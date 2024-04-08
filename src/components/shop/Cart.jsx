@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import CartItem from "./CartItem.jsx"
-
+import Loading from '../template/Loading.jsx'
 import '../../assets/cart.css'
 
 export default function Cart(){
@@ -31,8 +31,19 @@ export default function Cart(){
 
         getCart();
         window.scrollTo(0, 0);
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
     }, [])
 
+    const [loading, setLoading] = useState(true);
+
+
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
     return (
         <>
             <div id="cart">

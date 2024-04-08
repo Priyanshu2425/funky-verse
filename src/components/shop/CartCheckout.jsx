@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import CartItem from './CartItem';
 import '../../assets/cartcheckout.css'
 import { CircularProgress } from '@mui/material';
-
+import Loading from '../template/Loading';
 export default function CartCheckout(){
     const navigate = useNavigate();
     //display
@@ -187,8 +187,19 @@ export default function CartCheckout(){
         getUserData();
         getCartTotal();
         window.scrollTo(0, 0);
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
     }, [])
 
+    const [loading, setLoading] = useState(true);
+
+
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
     
     return (
         <>  

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Collection from './Collection';
 import CircularProgress from '@mui/material/CircularProgress';
 import { IoIosArrowForward } from "react-icons/io";
-
+import Loading from '../template/Loading';
 
 export default function ProductDesc(props){
     const navigate = useNavigate();
@@ -136,8 +136,17 @@ export default function ProductDesc(props){
     useEffect(()=>{
         getProduct();
         window.scrollTo(0, 0);
+        setTimeout(()=>{
+            setLoading(false);
+        }, 2000);
     }, [getProduct])
-    
+    const [loading, setLoading] = useState(true);
+
+    if(loading) return (
+        <>
+            <Loading/>
+        </>
+    )
     return (
         <>
             { product ?
