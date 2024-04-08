@@ -248,11 +248,11 @@ export default function ProductDesc(props){
                             <p>Neck: {product.neck}</p>
                             <p>Pattern: {product.pattern}</p>
                             <p>Pattern Type: {product.patternType}</p>
-                            <p>Price: {product.price}</p>
+                            {/* <p>Price: {product.price}</p> */}
                             <p>Sleeve Length: {product.sleeveLength}</p>
-                            <p>Sleeve Styling: {product.sleeveStyling}</p>
+                            {/* <p>Sleeve Styling: {product.sleeveStyling}</p> */}
                             <p>Wash Care: {product.washCare}</p>
-                            <p>Weave Type: {product.weaveType}</p>
+                            {/* <p>Weave Type: {product.weaveType}</p> */}
                             
                         </div>
                     </div>

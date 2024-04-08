@@ -47,16 +47,21 @@ export default function Profile(){
     
     useEffect(()=>{
         getUserData();
-        setTimeout(()=>{
-            setLoading(false);
-        }, 2000);
+        // setTimeout(()=>{
+        //     setOrderPlacedScreen(false);
+        // }, 4000);
     }, [])
-    const [loading, setLoading] = useState(true);
+    const [orderPlacedScreen, setOrderPlacedScreen] = useState(true);
 
     
     if(!userProfile) return <Loading/>
     return (
-        <>
+        <>  
+            {orderPlacedScreen ? 
+                <div style={{position: 'absolute', height: '100%', width: '100%', 
+                backgroundColor: 'white', top: 0, display: 'flex', justifyContent: 'center', alignItems:'center'}}>
+                    <div>ORDER PLACED</div>
+                </div> : <div></div>}
             <div id="profile" className='inter-thin'>
                 <div id="profile-info">
                     <p style={{fontSize: "1.2rem", fontWeight: 500}}>{userProfile.name}</p>
