@@ -17,7 +17,7 @@ export default function SizeChart(){
                 <br/>
                 <img src={RegularSizeChart}/>
                 <br/><br/>
-                <p> Size chart for out Funkyverse Lowers</p>
+                <p> Size chart for our Funkyverse Lowers</p>
                 <br/>
                 <img src={LowerSizeChart}/>
             </div>
