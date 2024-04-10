@@ -14,7 +14,8 @@ export default function ProductDesc(props){
     const [addingToCart, setAddingToCart] = useState(false);
     const [buyingNow, setBuyingNow] = useState(false);
 
-    const [selectedSize, setSelectedSize] = useState('S');
+    const [selectedSize, setSelectedSize] = useState('');
+    const [message, setMessage] = useState('');
 
     const handleSizeChange = (value) => {
         setSelectedSize(value);
@@ -74,6 +75,13 @@ export default function ProductDesc(props){
 
     const [addMessage, setAddMessage] = useState("");
     async function addToCart(event){
+        if(!selectedSize){
+            setMessage('Please select a size');
+            setTimeout(()=>{
+                setMessage('');
+            }, 1500);
+            return;
+        }
         setAddingToCart(true);
         let data = {
             'product': product._id,
@@ -180,52 +188,66 @@ export default function ProductDesc(props){
                                 <Link to='/sizechart' className='link-component'>
                                     <span style={{fontSize: "0.8rem", color: '#10b981', display: 'flex', 
                                     'alignItems': 'center', fontWeight: 'bold'}}>SIZE CHART <IoIosArrowForward/></span>
-                                
                                 </Link>
                              </div>
                             <div className='size'>
                                 <div
                                     className={`size-option ${selectedSize === 'S' ? 'selected' : ''}`}
-                                    onClick={() => handleSizeChange('S')}
+                                    onClick={() => {
+                                        handleSizeChange('S');
+                                        document.getElementById('quantityBox').style.display = 'flex';
+                                    }}
                                 >
                                     S
                                 </div>
 
                                 <div
                                     className={`size-option ${selectedSize === 'M' ? 'selected' : ''}`}
-                                    onClick={() => handleSizeChange('M')}
+                                    onClick={() => {
+                                        handleSizeChange('M');
+                                        document.getElementById('quantityBox').style.display = 'flex';
+                                    }}
                                 >
                                     M
                                 </div>
 
                                 <div
                                     className={`size-option ${selectedSize === 'L' ? 'selected' : ''}`}
-                                    onClick={() => handleSizeChange('L')}
+                                    onClick={() =>{ 
+                                        handleSizeChange('L');
+                                        document.getElementById('quantityBox').style.display = 'flex';
+                                    }}
                                 >
                                     L
                                 </div>
 
                                 <div
                                     className={`size-option ${selectedSize === 'XL' ? 'selected' : ''}`}
-                                    onClick={() => handleSizeChange('XL')}
+                                    onClick={() => {
+                                        handleSizeChange('XL');
+                                        document.getElementById('quantityBox').style.display = 'flex';
+                                    }}
                                 >
                                     XL
                                 </div>
 
                                 <div
                                     className={`size-option ${selectedSize === 'XXL' ? 'selected' : ''}`}
-                                    onClick={() => handleSizeChange('XXL')}
+                                    onClick={() => {
+                                        handleSizeChange('XXL');
+                                        document.getElementById('quantityBox').style.display = 'flex';
+                                    }}
                                 >
                                     XXL
                                 </div>
 
                             </div>
-                            {/* <div className='quantity'>
+                            <div className='quantity' id='quantityBox' style={{display: 'none'}}>
                                 <div className="quantity-btns" onClick={decreaseQuantity} style={{padding: '0 20px', fontSize: '1.5rem'}}> - </div>
                                 <div style={{display:'flex', width: '20px', flexDirection: 'column', justifyContent: 'center' , fontSize: '1.5rem'}}> {quantity} </div>
                                 <div className="quantity-btns" onClick={increaseQuantity} style={{padding: '0 20px', fontSize: '1.5rem'}}> + </div>
-                            </div> */}
-                            
+                            </div>
+                            {message ? <div style={{color: '#dc2626'}}>{message}</div>: <div></div>}
                             <div className='checkout-btns'>
                                 {!addingToCart
                                  ? localStorage.getItem('auth_token') ? <button onClick={addToCart}>Add to Cart</button>
