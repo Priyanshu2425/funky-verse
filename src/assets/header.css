@@ -83,6 +83,24 @@ nav{
     cursor: pointer;
 }
 
+.scroll-banner {
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;  /* Hide content overflowing the div */
+  width: max-content;  /* Set the width of the banner */
+  animation: scroll-text 240s linear infinite; /* Animation for scrolling */
+  display: flex;
+  gap: 50px;
+  background-color: black;
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px 0;
+}
+
+@keyframes scroll-text {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); } /* Move the content 100% to the left */
+}
+
 @media only screen and (max-width: 870px){
     #desktop-menu{
         display: none;
