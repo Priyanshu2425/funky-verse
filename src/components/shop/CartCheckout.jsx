@@ -269,7 +269,7 @@ export default function CartCheckout(){
                 <div id="cart-info">
                     {currentCart}
                     <div>
-                        {message}
+                        {message ? <div style={{color: "#dc2626", margin: '0 5%', fontWeight:'500'}}> {message} </div>: <div></div>}
                     </div>
                     <div id="final-price-checkout" className='inter-thin'>
                         <h2>TOTAL : ₹{cartTotal}</h2> 
