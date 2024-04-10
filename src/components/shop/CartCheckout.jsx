@@ -11,12 +11,22 @@ export default function CartCheckout(){
     //display
     const [currentCart, setCurrentCart] = useState("");
     const [userProfile, setUserProfile] = useState("");
+    const [originalCartTotal, setOriginalCartTotal] = useState("");
     const [cartTotal, setCartTotal] = useState("");
 
     //to be sent in body
     const [mobile, setMobile] = useState("");
     const [address, setAddress] = useState("");
     const [couponCode, setCouponCode] = useState("");
+    const [couponMessage, setCouponMessage] = useState("");
+    useEffect(()=>{
+        if(couponCode === "FV10"){
+            setCartTotal(originalCartTotal - (originalCartTotal * .10));
+            setCouponMessage('COUPON APPLIED');
+        }else{
+            setCartTotal(originalCartTotal);
+        }
+    }, [couponCode, originalCartTotal]);
 
     const [payingOnline, setPayingOnline] = useState(false);
     const [payingOffline, setPayingOffline] = useState(false);
@@ -89,6 +99,7 @@ export default function CartCheckout(){
 
         let data = await response.json();
         setCartTotal(data.cartTotal);
+        setOriginalCartTotal(data.cartTotal);
     }
 
     // async function verifyCouponCode(){
@@ -162,7 +173,7 @@ export default function CartCheckout(){
         let userInfo = {
             'mobile': mobile,
             'address': address,
-            'coupon': "NONE"
+            'coupon': couponCode
         }
 
         let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/cash',{
@@ -249,6 +260,7 @@ export default function CartCheckout(){
                     </div>
                         
                     <div id="divs">
+                        {couponMessage ? <div style={{fontSize:'0.7rem', color: '#10B981'}}><b>COUPON APPLIED</b></div> : <div></div>}
                         <input type="text" placeholder='Have a coupon code?' value={couponCode} onChange={changeCouponCode}/>
                         <button id="checkout-button-cart-checkout"> APPLY </button>
                     </div>
@@ -270,7 +282,7 @@ export default function CartCheckout(){
                     <hr/>
                     <div>
                         <div id="final-price-checkout" className='inter-thin'>
-                        <h2>TOTAL : ₹{cartTotal + 60}</h2> 
+                        <h2>TOTAL : ₹{originalCartTotal + 60}</h2> 
                         
                         <div>
                         {

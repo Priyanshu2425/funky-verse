@@ -220,11 +220,11 @@ export default function ProductDesc(props){
                                 </div>
 
                             </div>
-                            <div className='quantity'>
+                            {/* <div className='quantity'>
                                 <div className="quantity-btns" onClick={decreaseQuantity} style={{padding: '0 20px', fontSize: '1.5rem'}}> - </div>
                                 <div style={{display:'flex', width: '20px', flexDirection: 'column', justifyContent: 'center' , fontSize: '1.5rem'}}> {quantity} </div>
                                 <div className="quantity-btns" onClick={increaseQuantity} style={{padding: '0 20px', fontSize: '1.5rem'}}> + </div>
-                            </div>
+                            </div> */}
                             
                             <div className='checkout-btns'>
                                 {!addingToCart
