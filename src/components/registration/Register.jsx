@@ -62,7 +62,7 @@ export default function Register(){
             })
             
             let data = await response.json();
-            otpMessage.current.innerHTML = "OTP Sent";
+            otpMessage.current.innerHTML = "Email OTP Sent";
         }catch(error){
             if(error.name === "ZodError"){
                 setMessage("Invalid Email");

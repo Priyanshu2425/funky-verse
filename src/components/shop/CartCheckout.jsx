@@ -251,6 +251,7 @@ export default function CartCheckout(){
                         })}
 
                         <p> or </p>
+                        <i style={{fontSize: "0.8rem", color: "grey"}}> Recipient name, House number, Street name, Locality (or area), Town/city, State, PIN code</i>
                         <input type='text' placeholder='Deliver to another address?' value={address} onChange={changeDeliveryAddress}/>
                     
 
