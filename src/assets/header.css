@@ -96,6 +96,10 @@ nav{
   padding: 5px 0;
 }
 
+.scroll-banner-container{
+    width: 100%;
+
+}
 @keyframes scroll-text {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); } /* Move the content 100% to the left */

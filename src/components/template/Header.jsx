@@ -70,54 +70,58 @@ export default function Header(){
     return (
         <>
             <div id="header">
+                <div style={{width: '100%px', overflow:'hidden'}}>
                 <div className="scroll-banner inter-thin">
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
-                    <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                        <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
+                    </div>
                 </div>
-
                 <div id="desktop-menu">
+
+                    
+
                     <div id="logo">
                         <Link className="link-component"  to="/"><div className='orbitron'>FUNKYVERSE</div></Link>
                     </div>
