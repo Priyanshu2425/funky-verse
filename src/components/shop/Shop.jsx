@@ -16,20 +16,17 @@ export default function Shop(){
             let data = await response.json();
 
             setProducts(data.products.map((item)=>{
-                return <ProductCard key={item._id} product={item}/>
+                setTimeout(()=>{setLoading(false)}, 2000);
+                return <ProductCard key={item._id} product={item} />
             }));
-        }
+        }   
 
         getProducts();
-
         // setProducts(data.map((item)=>{
         //     return <ProductCard key={item.key} product={item}/>
         // }))
 
         window.scrollTo(0, 0);
-        setTimeout(()=>{
-            setLoading(false);
-        }, 2000);
     }, [])
 
     if(loading) return (

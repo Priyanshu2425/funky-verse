@@ -23,6 +23,9 @@ export default function CartCheckout(){
         if(couponCode === "FV10"){
             setCartTotal(originalCartTotal - (originalCartTotal * .10));
             setCouponMessage('COUPON APPLIED');
+        }else if(couponCode === "NAM15"){
+            setCartTotal(originalCartTotal - (originalCartTotal * .15));
+            setCouponMessage('COUPON APPLIED');
         }else{
             setCartTotal(originalCartTotal);
         }
