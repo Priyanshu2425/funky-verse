@@ -95,6 +95,19 @@ nav{
   font-size: 0.8rem;
   padding: 5px 0;
 }
+/* 
+.scroll-banner-2 {
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;  /* Hide content overflowing the div */
+  width: max-content;  /* Set the width of the banner */
+  animation: scroll-text 240s linear infinite; /* Animation for scrolling */
+  display: flex;
+  gap: 50px;
+  background-color: #f97316;
+  color: black;
+  font-size: 0.8rem;
+  padding: 5px 0;
+} */
 
 .scroll-banner-container{
     width: 100%;

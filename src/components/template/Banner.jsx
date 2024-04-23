@@ -62,22 +62,74 @@ export default function Banner(){
             />
         </main>
     ) : (
-        <main id='banner'>
-            <div
-            ref={videoParentRef}
-            dangerouslySetInnerHTML={{
-                __html: `
-                <video
-                loop
-                muted
-                autoplay
-                playsinline
-                preload="metadata"
-                >
-                <source src="${VideoSrc}" type="video/mp4" />
-                </video>`
-            }}
-            />
-        </main>
+        <>  
+            {/* <div style={{width: '100%px', overflow:'hidden'}}>
+                    <div className="scroll-banner-2 inter-thin">
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                        <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b></div>
+                    </div>
+                </div>               */}
+                
+            <main id='banner'>
+                
+                <div
+                ref={videoParentRef}
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    <video
+                    loop
+                    muted
+                    autoplay
+                    playsinline
+                    preload="metadata"
+                    >
+                    <source src="${VideoSrc}" type="video/mp4" />
+                    </video>`
+                }}
+                />
+            </main>
+        </>
   );
 }

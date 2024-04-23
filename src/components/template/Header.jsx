@@ -70,8 +70,18 @@ export default function Header(){
     return (
         <>
             <div id="header">
+            <a href="https://www.instagram.com/the_funkyverse/" style={{textDecoration: "none"}}><div style={{width: '100%px', 
+                        color: 'white', 
+                        textAlign: 'center', 
+                        fontSize: "0.8rem",
+                        padding: "0.5rem 0", 
+                        background: "linear-gradient(90deg, rgba(236,72,153,1) 15%, rgba(219,39,119,1) 31%, rgba(194,38,211,1) 65%, rgba(236,72,153,1) 86%)"}} className='inter-thin'>
+                    <div>FOR CUSTOMIZATION CONNECT ON <b>INSTAGRAM</b> </div>
+                </div>
+            </a>
+
                 <div style={{width: '100%px', overflow:'hidden'}}>
-                <div className="scroll-banner inter-thin">
+                    <div className="scroll-banner inter-thin">
                         <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
                         <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
                         <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
@@ -117,7 +127,8 @@ export default function Header(){
                         <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
                         <div>USE CODE <b>FV10</b> FOR ADDITIONAL <b>10% OFF</b> ON PREPAID ORDERS</div>
                     </div>
-                </div>
+                </div>                
+
                 <div id="desktop-menu">
 
                     
@@ -209,7 +220,7 @@ export default function Header(){
                         </div>
                     </nav>
                 </div>
-
+                                
                 <div id="mobile-menu">
 
                     <img id="mobile-menu-btn" onClick={openMenu} src={MenuIcon}/>
