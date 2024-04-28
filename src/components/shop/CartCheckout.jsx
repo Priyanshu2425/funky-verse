@@ -239,8 +239,8 @@ export default function CartCheckout(){
         })
         let data = await response.json();
         setProduct(data.product[0]);
-        setCartTotal(data.product[0].discountPrice);
-        setOriginalCartTotal(data.product[0].discountPrice);
+        setCartTotal(data.product[0].discountPrice * productQuantity);
+        setOriginalCartTotal(data.product[0].discountPrice * productQuantity);
         
     }
     

@@ -256,7 +256,13 @@ export default function ProductDesc(props){
                                  : <button ><CircularProgress color='inherit' size={14}/></button>
                                 }
                                 
-                                <button onClick={()=> {if(selectedSize) navigate(`/cartcheckout?productId=${productId}&size=${selectedSize}&quantity=${quantity}`)}}style={{backgroundColor: 'black', color: 'white'}}>Buy Now</button>
+                                <button onClick={()=> {if(selectedSize) 
+                                        navigate(`/cartcheckout?productId=${productId}&size=${selectedSize}&quantity=${quantity}`);
+                                    setMessage('Please select a size');
+                                    setTimeout(()=>{
+                                        setMessage('');
+                                        setMessageType('');
+                                    }, 2000);}}style={{backgroundColor: 'black', color: 'white'}}>Buy Now</button>
                                 
                                 
                             </div>
