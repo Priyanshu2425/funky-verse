@@ -248,13 +248,14 @@ export default function ProductDesc(props){
                                 <div className="quantity-btns" onClick={increaseQuantity} style={{padding: '0 20px', fontSize: '1.5rem'}}> + </div>
                             </div>
                             {message ? <div style={{color: '#dc2626'}}>{message}</div>: <div></div>}
+                            {addMessage}
                             <div className='checkout-btns'>
                                 {!addingToCart
                                  ? localStorage.getItem('auth_token') ? <button onClick={addToCart}>Add to Cart</button>
                                  : <Link to='/login'><button onClick={addToCart}>Add to Cart</button></Link>
                                  : <button ><CircularProgress color='inherit' size={14}/></button>
                                 }
-                                {addMessage}
+                                
                                 <Link to={`/cartcheckout?productId=${productId}&size=${selectedSize}&quantity=${quantity}`}>
                                     <button style={{backgroundColor: 'black', color: 'white'}}>Buy Now</button>
                                 </Link>
