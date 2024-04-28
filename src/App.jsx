@@ -108,6 +108,11 @@ function App() {
             <Route path='/sizechart' exact element={<>
               <SizeChart/>
             </>}></Route>
+
+            
+            <Route path='/track-order' exact element={<>
+              <SizeChart/>
+            </>}></Route>
         </Routes>
       <Footer/>
       {/* </Suspense> */}

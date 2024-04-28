@@ -145,13 +145,13 @@ export default function CartCheckout(){
                     size: productSize,
                     quantity: productQuantity,
                     imageLink1: product.imageLink1,
-                    price: cartTotal,
-                    total_price: cartTotal 
+                    price: originalCartTotal,
+                    total_price: originalCartTotal 
                 }
             }
         }
-
-        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/online', {
+        // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/online
+        let response = await fetch('http://localhost:3000/.netlify/functions/api/user/orders/payment/online', {
             method: 'POST',
             headers: {
                 'auth': localStorage.getItem('auth_token'),
@@ -223,6 +223,7 @@ export default function CartCheckout(){
         let data = await response.json();
 
         if(response.status === 200){
+            if(!localStorage.getItem('auth_token')) navigate('/track-order');
             navigate('/profile');
         }
         setPayingOffline(false);
@@ -260,7 +261,7 @@ export default function CartCheckout(){
             getProduct();
             setLoading(false);
         }
-        console.log(product);
+
         window.scrollTo(0, 0);
         // setTimeout(()=>{
         //     setLoading(false);
