@@ -210,7 +210,7 @@ export default function CartCheckout(){
                 }
             }
         }
-        
+
         let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/cash',{
             method: 'POST',
             headers: {
@@ -223,8 +223,7 @@ export default function CartCheckout(){
         let data = await response.json();
 
         if(response.status === 200){
-            console.log(data);
-            // navigate('/profile');
+            navigate('/profile');
         }
         setPayingOffline(false);
     }
