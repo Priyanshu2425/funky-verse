@@ -157,7 +157,8 @@ export default function CartCheckout(){
                 'auth': localStorage.getItem('auth_token'),
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(userInfo)
+            body: JSON.stringify(userInfo),
+            mode: 'no-cors'
         });
 
         let data = await response.json();
