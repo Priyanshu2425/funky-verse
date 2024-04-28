@@ -150,8 +150,8 @@ export default function CartCheckout(){
                 }
             }
         }
-        // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/online
-        let response = await fetch('http://localhost:3000/.netlify/functions/api/user/orders/payment/online', {
+
+        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/.netlify/functions/api/user/orders/payment/online', {
             method: 'POST',
             headers: {
                 'auth': localStorage.getItem('auth_token'),
