@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import CartItem from './CartItem';
 import '../../assets/cartcheckout.css'
 import { CircularProgress } from '@mui/material';
@@ -8,6 +8,11 @@ import FinalCartItem from '../shop/FinalCartItem'
 
 export default function CartCheckout(){
     const navigate = useNavigate();
+    const searchParams = new URLSearchParams(location.search);
+    const productId = searchParams.get("productId");
+    const productSize = searchParams.get("size");
+    const productQuantity = searchParams.get("quantity");
+
     //display
     const [currentCart, setCurrentCart] = useState("");
     const [userProfile, setUserProfile] = useState("");
@@ -105,10 +110,6 @@ export default function CartCheckout(){
         setOriginalCartTotal(data.cartTotal);
     }
 
-    // async function verifyCouponCode(){
-    //     // Implement this
-    // }
-
     async function onlinePayment(){
         setPayingOnline(true);
         if(!mobile || !address){
@@ -133,6 +134,21 @@ export default function CartCheckout(){
             'mobile': mobile,
             'address': address,
             'coupon': couponCode
+        }
+
+        if(product){
+            userInfo = {
+                ...userInfo,
+                product: {
+                    product: product._id,
+                    productName: product.productName,
+                    size: productSize,
+                    quantity: productQuantity,
+                    imageLink1: product.imageLink1,
+                    price: cartTotal,
+                    total_price: cartTotal 
+                }
+            }
         }
 
         let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/online', {
@@ -173,12 +189,28 @@ export default function CartCheckout(){
             return;
         }
 
+        
         let userInfo = {
             'mobile': mobile,
             'address': address,
-            'coupon': couponCode
+            'coupon': couponCode,
         }
 
+        if(product){
+            userInfo = {
+                ...userInfo,
+                product: {
+                    product: product._id,
+                    productName: product.productName,
+                    size: productSize,
+                    quantity: productQuantity,
+                    imageLink1: product.imageLink1,
+                    price: cartTotal,
+                    total_price: cartTotal 
+                }
+            }
+        }
+        
         let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/cash',{
             method: 'POST',
             headers: {
@@ -189,20 +221,51 @@ export default function CartCheckout(){
         })
 
         let data = await response.json();
+
         if(response.status === 200){
-            navigate('/profile');
+            console.log(data);
+            // navigate('/profile');
         }
         setPayingOffline(false);
     }
+
+    const [product, setProduct] = useState('');
+
+    const getProduct = async()=>{
+        let response = await fetch(`https://funkyverse-backend.netlify.app/.netlify/functions/api/products/item/${productId}`,{
+            method: 'GET',
+            headers: {
+                'auth': localStorage.getItem('auth_token')
+            }
+        })
+        let data = await response.json();
+        setProduct(data.product[0]);
+        setCartTotal(data.product[0].discountPrice);
+        setOriginalCartTotal(data.product[0].discountPrice);
+        
+    }
     
-    useEffect(()=>{
-        getCart();
-        getUserData();
-        getCartTotal();
-        window.scrollTo(0, 0);
-        setTimeout(()=>{
+
+    useEffect(()=>{        
+        if(localStorage.getItem('auth_token')){
+            
+            getUserData();
+            if(!productId){
+                getCart();
+                getCartTotal();
+            }else{
+                getProduct();
+            }
             setLoading(false);
-        }, 2000);
+        }else{
+            getProduct();
+            setLoading(false);
+        }
+        console.log(product);
+        window.scrollTo(0, 0);
+        // setTimeout(()=>{
+        //     setLoading(false);
+        // }, 2000);
     }, [])
 
     const [loading, setLoading] = useState(true);
@@ -271,7 +334,7 @@ export default function CartCheckout(){
                 </div>
 
                 <div id="cart-info">
-                    {currentCart}
+                    {productId ? <FinalCartItem product={product} pSize={productSize} pQuantity={productQuantity}/> : currentCart}
                     <div>
                         {message ? <div style={{color: "#dc2626", margin: '0 5%', fontWeight:'500'}}> {message} </div>: <div></div>}
                     </div>

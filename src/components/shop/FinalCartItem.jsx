@@ -11,10 +11,10 @@ export default function CartItem(props){
                     <div> <img className="cart-item-img" src={props.product.imageLink1}/> </div>
                     <div className="cart-item-info">
                         <div className='cart-item-productName font-weight-300'> {props.product.productName} </div>
-                        <div className='cart-item-discountPrice font-weight-300'> ₹{props.product.price}</div>
-                        <div className='cart-item-size'> Size: {props.product.size}</div>
+                        <div className='cart-item-discountPrice font-weight-300'> ₹{ props.product.discountPrice || props.product.price }</div>
+                        <div className='cart-item-size'> Size: {props.product.size || props.pSize}</div>
                         <div className='cart-item-quantity'> 
-                            Quantity: <span></span> {props.product.quantity} <span></span> </div>
+                            Quantity: <span></span> {props.product.quantity || props.pQuantity} <span></span> </div>
                         </div>
                         
                         

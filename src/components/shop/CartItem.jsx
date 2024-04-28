@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import '../../assets/cart.css'
 
 export default function CartItem(props){
-
     async function removeFromCart(){
 
         let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/remove",{
