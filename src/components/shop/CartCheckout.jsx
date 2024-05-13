@@ -21,9 +21,22 @@ export default function CartCheckout(){
 
     //to be sent in body
     const [mobile, setMobile] = useState("");
-    const [address, setAddress] = useState("");
     const [couponCode, setCouponCode] = useState("");
     const [couponMessage, setCouponMessage] = useState("");
+    const [address, setAddress] = useState({
+        addressLine: "",
+        landmark: "",
+        city: "",
+        state: "",
+        postal: "",
+    });
+    const [finalAddress, setFinalAddress] = useState("");
+
+    useEffect(()=>{
+        const { addressLine, landmark, city, state, postal } = address;
+        setFinalAddress(`${addressLine} ${landmark} ${city} ${state} ${postal}`);
+    }, [address])
+
     useEffect(()=>{
         if(couponCode === "FV10"){
             setCartTotal(originalCartTotal - (originalCartTotal * .10));
@@ -51,7 +64,14 @@ export default function CartCheckout(){
     }
 
     function changeDeliveryAddress(event){
-        setAddress(event.target.value);
+        let val = event.target.value;
+        let key = event.target.id
+
+        let obj = { ...address }
+        obj[key] = val;
+
+        setAddress(obj);
+        console.log(obj);
         const radios = document.getElementsByClassName('radios');
         for (let i = 0; i < radios.length; i++) {
             if(radios[i].checked)
@@ -112,7 +132,7 @@ export default function CartCheckout(){
 
     async function onlinePayment(){
         setPayingOnline(true);
-        if(!mobile || !address){
+        if(!mobile || !(finalAddress.length > 10)){
             setMessage("Please fill in all the details");
             setTimeout(()=>{
                 setMessage("");
@@ -132,7 +152,7 @@ export default function CartCheckout(){
 
         let userInfo = {
             'mobile': mobile,
-            'address': address,
+            'address': finalAddress,
             'coupon': couponCode
         }
 
@@ -171,7 +191,7 @@ export default function CartCheckout(){
 
     async function offlinePayment(){
         setPayingOffline(true);
-        if(!mobile || !address){
+        if(!mobile ||  !(finalAddress.length > 10)){
             setMessage("Please fill in all the details");
             setTimeout(()=>{
                 setMessage("");
@@ -192,7 +212,7 @@ export default function CartCheckout(){
         
         let userInfo = {
             'mobile': mobile,
-            'address': address,
+            'address': finalAddress,
             'coupon': couponCode,
         }
 
@@ -279,7 +299,6 @@ export default function CartCheckout(){
     
     return (
         <>  
-        
             <div id="cart-checkout" className='inter-thin'>
                 <div id="user-info">
                     <div id="divs">
@@ -318,11 +337,14 @@ export default function CartCheckout(){
 
                         <p> or </p>
                         <i style={{fontSize: "0.8rem", color: "grey"}}> Recipient name, House number, Street name, Locality (or area), Town/city, State, PIN code</i>
-                        <input type='text' placeholder='Deliver to another address?' value={address} onChange={changeDeliveryAddress}/>
-                    
+                        <input type='text' placeholder='Address' id="addressLine" onChange={changeDeliveryAddress}/>
+                        <input type='text' placeholder='Landmark' id="landmark"  onChange={changeDeliveryAddress}/>
+                        <input type='text' placeholder='City' id="city"  onChange={changeDeliveryAddress}/>
+                        <input type='text' placeholder='State' id="state" onChange={changeDeliveryAddress}/>
+                        <input type='text' placeholder='Postal Code' id="postal"  onChange={changeDeliveryAddress}/>
 
                         <div>
-                            Delivering to: {address}
+                            Delivering to: {finalAddress}
                         </div>
                     </div>
                         
@@ -366,6 +388,7 @@ export default function CartCheckout(){
                 </div>
             </div>
  
+            
         </>
     )
 }
