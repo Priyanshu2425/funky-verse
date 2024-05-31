@@ -5,7 +5,7 @@ import BannerImg from '/banner.jpg'
 // import BrandImageOne from '/pexels-brand-image.jpg'
 // import BrandImageTwo from '/pexels-brand-image2.jpg'
 
-import VideoSrc from '/FUNKYVERSE-2.MP4?url'
+import VideoSrc from '/THE FUNKYVERSE ORIGNALS.MP4?url'
 
 const isSafari = () => {
   const ua = navigator.userAgent.toLowerCase();
