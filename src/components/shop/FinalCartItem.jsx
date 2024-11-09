@@ -19,9 +19,9 @@ export default function CartItem(props){
                         
                         
                 </div>
-                <div className='font-weight-300'>
+                {/* <div className='font-weight-300'>
                     <div>₹{props.product.total_price}</div>
-                </div>
+                </div> */}
             </div>
 
         </>

@@ -11,6 +11,9 @@ import { CircularProgress } from "@mui/material"
 import { username } from "../../atoms"
 import { useSetRecoilState } from 'recoil'
 import Loading from "../template/Loading"
+
+
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function Register(){
     const navigate = useNavigate();
     const setUsername = useSetRecoilState(username);
@@ -52,7 +55,7 @@ export default function Register(){
             verifyBtn.current.style.display = "block";
             btn2.current.style.display = "flex";
             //https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp
-            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/otp",{
+            let response = await fetch(`${url}/user/otp`,{
                 method: "POST",
                 headers:{
                     'Content-Type': 'application/json'
@@ -83,7 +86,7 @@ export default function Register(){
         async function sendVerifyReq(){
             if(otp.length === 6 && !otpVerified){
                 // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/match/otp
-                let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/match/otp", {
+                let response = await fetch(`${url}/user/match/otp`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -124,7 +127,7 @@ export default function Register(){
                     "OTP": otp
                 }
                 // https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup
-                let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/signup", {
+                let response = await fetch(`${url}/user/signup`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -164,21 +167,6 @@ export default function Register(){
             setMessageType("");
         }, 2000);
     }
-
-    const [loading, setLoading] = useState(true);
-
-
-    useEffect(()=>{
-        setTimeout(()=>{
-            setLoading(false);
-        }, 2000);
-    })
-
-    if(loading) return (
-        <>
-            <Loading/>
-        </>
-    )
 
     return (
         <>  

@@ -3,6 +3,7 @@ import ProductCard from './ProductCard.jsx';
 
 import '../../assets/collection.css'
 
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function Collection(props){
 
     const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ export default function Collection(props){
     useEffect(()=>{
         
         async function getProducts(){
-            let response = await fetch(" https://funkyverse-backend.netlify.app/.netlify/functions/api/products", {
+            let response = await fetch(`${url}/products`, {
                 method: "GET"
             });
 

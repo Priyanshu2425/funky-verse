@@ -10,6 +10,18 @@
     z-index: 1;
 }
 
+#desktop-menu{
+    width: 100%;
+}
+
+#header-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 20px 2% 20px;
+    background-color: white;
+}
+
 #logo{
     width: 100%;
     text-align: center;
@@ -26,13 +38,13 @@
     font-size: 2rem;
 }
 
-nav{
+/* nav{
     font-size: 1rem;
     display: flex;
     justify-content: center;
     padding-bottom: 1%;
     background-color: white;
-}
+} */
 
 #header-links{
     display: flex;
@@ -45,6 +57,8 @@ nav{
     padding: 3vh 5vw;
     font-size: 1.5rem;
     background-color: white;
+    position: sticky;
+    top: 0;
 }
 
 #mobile-menu img{
@@ -95,19 +109,7 @@ nav{
   font-size: 0.8rem;
   padding: 5px 0;
 }
-/* 
-.scroll-banner-2 {
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden;  /* Hide content overflowing the div */
-  width: max-content;  /* Set the width of the banner */
-  animation: scroll-text 240s linear infinite; /* Animation for scrolling */
-  display: flex;
-  gap: 50px;
-  background-color: #f97316;
-  color: black;
-  font-size: 0.8rem;
-  padding: 5px 0;
-} */
+
 
 .scroll-banner-container{
     width: 100%;

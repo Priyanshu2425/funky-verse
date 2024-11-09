@@ -29,16 +29,13 @@ import HomePage from "./components/template/HomePage";
 
 function App() {
 
-  useEffect(()=>{
-    console.log("app is reloading");
-  })
-
 
   return (
     <>
       {/* <Suspense> */}
       
         <Header/>
+
         <Routes>
             <Route path='/' exact element={
               <>

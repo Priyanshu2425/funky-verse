@@ -45,6 +45,7 @@
 .card-img{
     width: 100%;
     aspect-ratio: 1/1;
+    scale: 80%;
 }
 
 .card:hover .card-img{

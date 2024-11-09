@@ -10,10 +10,14 @@
 
 .adbanner-left{
     width: 50%;
+    background-color: black !important;
+    color: white
 }
 
 .adbanner-right{
     width: 50%;
+    background-color: black !important;
+    color: white
 }
 
 @media only screen and (max-width: 800px){

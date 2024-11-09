@@ -7,6 +7,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { IoIosArrowForward } from "react-icons/io";
 import Loading from '../template/Loading';
 
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function ProductDesc(props){
     const navigate = useNavigate();
     const [product, setProduct] = useState();
@@ -56,7 +57,7 @@ export default function ProductDesc(props){
     const productId = searchParams.get("id");
 
     const getProduct = useCallback(async()=>{
-        let response = await fetch(`https://funkyverse-backend.netlify.app/.netlify/functions/api/products/item/${productId}`,{
+        let response = await fetch(`${url}/products/item/${productId}`,{
             method: 'GET',
             headers: {
                 'auth': localStorage.getItem('auth_token')
@@ -64,6 +65,7 @@ export default function ProductDesc(props){
         })
         let data = await response.json();
         setProduct(data.product[0]);
+        setLoading(false);
     }, [productId]);
 
     const mainImage = useRef();
@@ -93,7 +95,7 @@ export default function ProductDesc(props){
             'total_price': product.discountPrice * quantity
         }
 
-        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/add-to-cart/",{
+        let response = await fetch(`${url}/user/cart/add-to-cart/`,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -122,7 +124,7 @@ export default function ProductDesc(props){
         }
 
         async function buyNowReq(){
-            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/buynow", {
+            let response = await fetch(`${url}/user/orders/payment/buynow`, {
                 "method": "POST",
                 "headers": {
                     "auth": localStorage.getItem('auth_token'),
@@ -143,9 +145,7 @@ export default function ProductDesc(props){
     useEffect(()=>{
         getProduct();
         window.scrollTo(0, 0);
-        setTimeout(()=>{
-            setLoading(false);
-        }, 2000);
+        
     }, [getProduct])
     const [loading, setLoading] = useState(true);
 

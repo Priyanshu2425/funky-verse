@@ -112,9 +112,9 @@ export default function Banner(){
                     </div>
                 </div>               */}
                 
-            <main id='banner'>
-                
-                <div
+                <img src={BannerImg} style={{width:'100%'}}/>
+            <main id='banner' style={{height: "50%"}}>
+                {/* <div
                 ref={videoParentRef}
                 dangerouslySetInnerHTML={{
                     __html: `
@@ -128,7 +128,7 @@ export default function Banner(){
                     <source src="${VideoSrc}" type="video/mp4" />
                     </video>`
                 }}
-                />
+                /> */}
             </main>
         </>
   );

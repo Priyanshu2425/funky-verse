@@ -4,6 +4,8 @@ import CartItem from "./CartItem.jsx"
 import Loading from '../template/Loading.jsx'
 import '../../assets/cart.css'
 
+
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function Cart(){
 
     const [cart, setCart] = useState([]);
@@ -15,7 +17,7 @@ export default function Cart(){
     useEffect(()=>{
 
         async function getCart(){
-            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/items",{
+            let response = await fetch(`${url}/user/cart/items`,{
                 method: 'GET',
                 headers: {
                     "auth": localStorage.getItem('auth_token')
@@ -31,9 +33,7 @@ export default function Cart(){
 
         getCart();
         window.scrollTo(0, 0);
-        setTimeout(()=>{
-            setLoading(false);
-        }, 2000);
+        setLoading(false);
     }, [])
 
     const [loading, setLoading] = useState(true);

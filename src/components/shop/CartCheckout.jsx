@@ -6,6 +6,8 @@ import { CircularProgress } from '@mui/material';
 import Loading from '../template/Loading';
 import FinalCartItem from '../shop/FinalCartItem'
 
+
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function CartCheckout(){
     const navigate = useNavigate();
     const searchParams = new URLSearchParams(location.search);
@@ -91,7 +93,7 @@ export default function CartCheckout(){
     }
 
     async function getUserData(){
-        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/profile", {
+        let response = await fetch(`${url}/user/profile`, {
             method: 'GET',
             headers: {
                 'auth': localStorage.getItem('auth_token')
@@ -103,7 +105,7 @@ export default function CartCheckout(){
     }
 
     async function getCart(){
-        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/items",{
+        let response = await fetch(`${url}/user/cart/items`,{
             method: 'GET',
             headers: {
                 "auth": localStorage.getItem('auth_token')
@@ -118,7 +120,7 @@ export default function CartCheckout(){
     }
 
     async function getCartTotal(){
-        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/cart/cart-total', {
+        let response = await fetch(`${url}/user/cart/cart-total`, {
             method: 'GET',
             headers: {
                 'auth': localStorage.getItem('auth_token')
@@ -171,7 +173,7 @@ export default function CartCheckout(){
             }
         }
 
-        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/online', {
+        let response = await fetch(`${url}/user/orders/payment/online`, {
             method: 'POST',
             headers: {
                 'auth': localStorage.getItem('auth_token'),
@@ -231,7 +233,7 @@ export default function CartCheckout(){
             }
         }
 
-        let response = await fetch('https://funkyverse-backend.netlify.app/.netlify/functions/api/user/orders/payment/cash',{
+        let response = await fetch(`${url}/user/orders/payment/cash`,{
             method: 'POST',
             headers: {
                 'auth': localStorage.getItem('auth_token'),
@@ -252,7 +254,7 @@ export default function CartCheckout(){
     const [product, setProduct] = useState('');
 
     const getProduct = async()=>{
-        let response = await fetch(`https://funkyverse-backend.netlify.app/.netlify/functions/api/products/item/${productId}`,{
+        let response = await fetch(`${url}/products/item/${productId}`,{
             method: 'GET',
             headers: {
                 'auth': localStorage.getItem('auth_token')
@@ -283,9 +285,7 @@ export default function CartCheckout(){
         }
 
         window.scrollTo(0, 0);
-        // setTimeout(()=>{
-        //     setLoading(false);
-        // }, 2000);
+        
     }, [])
 
     const [loading, setLoading] = useState(true);
@@ -348,11 +348,11 @@ export default function CartCheckout(){
                         </div>
                     </div>
                         
-                    <div id="divs">
+                    {/* <div id="divs">
                         {couponMessage ? <div style={{fontSize:'0.7rem', color: '#10B981'}}><b>COUPON APPLIED</b></div> : <div></div>}
                         <input type="text" placeholder='Have a coupon code?' value={couponCode} onChange={changeCouponCode}/>
                         <button id="checkout-button-cart-checkout"> APPLY </button>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div id="cart-info">

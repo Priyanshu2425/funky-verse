@@ -3,20 +3,22 @@ import ProductCard from '../products/ProductCard';
 import Loading from '../template/Loading';
 import '../../assets/shop.css'
 
+
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function Shop(){
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
         async function getProducts(){
-            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/products", {
+            let response = await fetch(`${url}/products`, {
                 method: "GET"
             });
 
             let data = await response.json();
 
             setProducts(data.products.map((item)=>{
-                setTimeout(()=>{setLoading(false)}, 2000);
+                setLoading(false)
                 return <ProductCard key={item._id} product={item} />
             }));
         }   

@@ -7,7 +7,7 @@ import Order from './Order';
 import Loading from '../template/Loading';
 import OrderPlacedIcon from '/orderplaced.png'
 
-
+const url = import.meta.env.VITE_BACKEND_URL;
 export default function Profile(){
     const [userProfile, setUserProfile] = useState('');
     const [address, setAddress] = useState('');
@@ -19,7 +19,7 @@ export default function Profile(){
         setAddingAddress(true);
 
         async function addAddressReq(){
-            let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/profile/add-address",
+            let response = await fetch(`${url}/user/profile/add-address`,
             {
                 method: "POST",
                 headers: {
@@ -37,7 +37,7 @@ export default function Profile(){
     }
 
     async function getUserData(){
-        let response = await fetch("https://funkyverse-backend.netlify.app/.netlify/functions/api/user/profile", {
+        let response = await fetch(`${url}/user/profile`, {
             method: 'GET',
             headers:{
                 'auth': localStorage.getItem('auth_token')
