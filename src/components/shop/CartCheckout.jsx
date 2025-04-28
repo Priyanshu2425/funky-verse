@@ -360,14 +360,14 @@ export default function CartCheckout(){
                     <div>
                         {message ? <div style={{color: "#dc2626", margin: '0 5%', fontWeight:'500'}}> {message} </div>: <div></div>}
                     </div>
-                    <div id="final-price-checkout" className='inter-thin'>
+                    {/*<div id="final-price-checkout" className='inter-thin'>
                         <h2>TOTAL : ₹{cartTotal}</h2> 
                         {
                             payingOnline ? 
                             <CircularProgress color="inherit" size={20}/>
                             :<button id="checkout-button-cart-checkout" onClick={onlinePayment}>PAY ONLINE</button>
                         }
-                    </div>
+                    </div> */}
                     <hr/>
                     <div>
                         <div id="final-price-checkout" className='inter-thin'>
